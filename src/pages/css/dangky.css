@@ -1,0 +1,654 @@
+.dangky-container1 {
+  width: 100%;
+  display: flex;
+  overflow: auto;
+  min-height: 100vh;
+  align-items: center;
+  flex-direction: column;
+}
+ 
+.dangky-thq-dangky-elm {
+  gap: 10px;
+  width: 100%;
+  height: auto;
+  display: flex;
+  overflow: hidden;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 1);
+}
+ 
+.dangky-thq-frame792735-elm {
+  gap: 91px;
+  width: 1440px;
+  display: flex;
+  align-items: flex-start;
+  flex-shrink: 0;
+  flex-direction: column;
+}
+ 
+.dangky-thq-header-elm {
+  gap: 24px;
+  display: flex;
+  padding: 32px;
+  overflow: hidden;
+  flex-wrap: wrap;
+  align-self: stretch;
+  box-shadow: 0px 4px 44.29999923706055px 0px rgba(0, 0, 0, 0.25) ;
+  align-items: center;
+  flex-shrink: 0;
+  border-color: rgba(217, 217, 217, 1);
+  border-style: solid;
+  border-width: 0 0 1px;
+  background-color: rgba(255, 255, 255, 1);
+}
+ 
+.dangky-thq-logotchnn1-elm1 {
+  width: 183px;
+  height: 50px;
+}
+ 
+.dangky-thq-navigation-pill-list-elm {
+  gap: 8px;
+  display: flex;
+  flex-grow: 1;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: flex-end;
+}
+ 
+.dangky-thq-khunggdangkydangnhap-elm {
+  gap: 10px;
+  display: flex;
+  padding: 10px;
+  align-self: stretch;
+  align-items: center;
+  flex-shrink: 0;
+  background-size: cover;
+  justify-content: center;
+  background-image: url("/favicon.svg");
+}
+ 
+.dangky-thq-framengnhp-elm {
+  gap: 16px;
+  width: 600px;
+  height: 624px;
+  display: flex;
+  padding: 24px 16px;
+  box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15000000596046448) ;
+  align-items: center;
+  flex-shrink: 0;
+  border-radius: 16px;
+  flex-direction: column;
+  background-color: rgba(255, 255, 255, 1);
+}
+ 
+.dangky-thq-textngkngnhp-elm {
+  width: 552px;
+  height: 77px;
+  display: flex;
+  position: relative;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+ 
+.dangky-thq-text-elm10 {
+  left: 75px;
+  color: rgba(30, 30, 30, 1);
+  height: auto;
+  position: absolute;
+  font-size: 48px;
+  font-style: Bold;
+  text-align: center;
+  font-family: Inter;
+  font-weight: 700;
+  line-height: 120.00000476837158%;
+  font-stretch: normal;
+  text-decoration: none;
+}
+ 
+.dangky-thq-framengkngnhp-elm {
+  gap: 24px;
+  width: 454px;
+  display: flex;
+  padding: 24px;
+  overflow: hidden;
+  box-shadow: 0px 1px 4px 0px rgba(12, 12, 13, 0.10000000149011612) ;
+  align-items: flex-start;
+  flex-shrink: 0;
+  border-color: rgba(217, 217, 217, 1);
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 20px;
+  flex-direction: column;
+  background-color: rgba(245, 245, 245, 1);
+}
+ 
+.dangky-thq-input-field-elm1 {
+  gap: 8px;
+  display: flex;
+  align-self: stretch;
+  align-items: flex-start;
+  flex-direction: column;
+}
+ 
+.dangky-thq-text-elm11 {
+  color: rgba(30, 30, 30, 1);
+  height: auto;
+  align-self: stretch;
+  text-align: left;
+  line-height: 139.9999976158142%;
+}
+ 
+.dangky-thq-input-elm1 {
+  color: rgba(179, 179, 179, 1);
+  display: flex;
+  padding: 12px 16px;
+  overflow: hidden;
+  font-size: 16px;
+  align-self: stretch;
+  text-align: left;
+  align-items: center;
+  flex-shrink: 0;
+  font-family: Inter;
+  font-weight: 400;
+  border-color: rgba(217, 217, 217, 1);
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 1);
+}
+ 
+.dangky-thq-input-field-elm2 {
+  gap: 8px;
+  display: flex;
+  align-self: stretch;
+  align-items: flex-start;
+  flex-direction: column;
+}
+ 
+.dangky-thq-text-elm12 {
+  color: rgba(30, 30, 30, 1);
+  height: auto;
+  align-self: stretch;
+  text-align: left;
+  line-height: 139.9999976158142%;
+}
+ 
+.dangky-thq-input-elm2 {
+  color: rgba(179, 179, 179, 1);
+  display: flex;
+  padding: 12px 16px;
+  overflow: hidden;
+  font-size: 16px;
+  align-self: stretch;
+  text-align: left;
+  align-items: center;
+  flex-shrink: 0;
+  font-family: Inter;
+  font-weight: 400;
+  border-color: rgba(217, 217, 217, 1);
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 1);
+}
+ 
+.dangky-thq-input-field-elm3 {
+  gap: 8px;
+  display: flex;
+  align-self: stretch;
+  align-items: flex-start;
+  flex-direction: column;
+}
+ 
+.dangky-thq-text-elm13 {
+  color: rgba(30, 30, 30, 1);
+  height: auto;
+  align-self: stretch;
+  text-align: left;
+  line-height: 139.9999976158142%;
+}
+ 
+.dangky-thq-input-elm3 {
+  color: rgba(179, 179, 179, 1);
+  display: flex;
+  padding: 12px 16px;
+  overflow: hidden;
+  font-size: 16px;
+  align-self: stretch;
+  text-align: left;
+  align-items: center;
+  flex-shrink: 0;
+  font-family: Inter;
+  font-weight: 400;
+  border-color: rgba(217, 217, 217, 1);
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 1);
+}
+ 
+.dangky-thq-input-field-elm4 {
+  gap: 8px;
+  display: flex;
+  align-self: stretch;
+  align-items: flex-start;
+  flex-direction: column;
+}
+ 
+.dangky-thq-text-elm14 {
+  color: rgba(30, 30, 30, 1);
+  height: auto;
+  align-self: stretch;
+  text-align: left;
+  line-height: 139.9999976158142%;
+}
+ 
+.dangky-thq-input-elm4 {
+  color: rgba(179, 179, 179, 1);
+  display: flex;
+  padding: 12px 16px;
+  overflow: hidden;
+  font-size: 16px;
+  align-self: stretch;
+  text-align: left;
+  align-items: center;
+  flex-shrink: 0;
+  font-family: Inter;
+  font-weight: 400;
+  border-color: rgba(217, 217, 217, 1);
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 1);
+}
+ 
+.dangky-thq-button-group-elm {
+  gap: 16px;
+  display: flex;
+  align-self: stretch;
+  align-items: center;
+  flex-shrink: 0;
+}
+ 
+.dangky-thq-button-elm {
+  gap: 8px;
+  display: flex;
+  padding: 12px;
+  overflow: hidden;
+  flex-grow: 1;
+  align-items: center;
+  border-color: rgba(44, 44, 44, 1);
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 8px;
+  justify-content: center;
+  background-color: rgba(44, 44, 44, 1);
+}
+ 
+.dangky-thq-text-elm15 {
+  color: rgba(245, 245, 245, 1);
+  height: auto;
+  text-align: left;
+  line-height: 100%;
+}
+ 
+.dangky-thq-footer-elm {
+  gap: 199px;
+  width: 1440px;
+  height: 351px;
+  display: flex;
+  padding: 32px 32px 160px;
+  overflow: hidden;
+  position: relative;
+  align-self: stretch;
+  align-items: flex-start;
+  flex-shrink: 0;
+  border-color: rgba(217, 217, 217, 1);
+  border-style: solid;
+  border-width: 1px 0 0;
+  background-color: rgba(255, 255, 255, 1);
+}
+ 
+.dangky-thq-title-elm1 {
+  gap: 24px;
+  top: 32px;
+  left: 32px;
+  width: 262px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 0;
+  flex-direction: column;
+}
+ 
+.dangky-thq-logotchnn1-elm2 {
+  width: 262px;
+  height: 72px;
+  display: flex;
+  position: relative;
+  align-self: stretch;
+  align-items: flex-start;
+}
+ 
+.dangky-thq-logotchnn1-elm3 {
+  top: 0px;
+  left: 0px;
+  width: 262px;
+  height: 72px;
+  position: absolute;
+  align-self: stretch;
+}
+ 
+.dangky-thq-slot-elm {
+  gap: 16px;
+  top: 32px;
+  left: 493px;
+  width: 540px;
+  display: flex;
+  position: absolute;
+  align-items: center;
+}
+ 
+.dangky-thq-text-link-list-elm1 {
+  gap: 12px;
+  width: 262px;
+  display: flex;
+  align-items: flex-start;
+  flex-shrink: 0;
+  flex-direction: column;
+}
+ 
+.dangky-thq-title-elm2 {
+  display: flex;
+  padding: 0 0 16px;
+  align-self: stretch;
+  align-items: flex-start;
+  flex-direction: column;
+}
+ 
+.dangky-thq-text-strong-elm1 {
+  display: flex;
+  align-items: flex-start;
+}
+ 
+.dangky-thq-text-elm16 {
+  color: rgba(30, 30, 30, 1);
+  height: auto;
+  text-align: left;
+  line-height: 120.00000476837158%;
+}
+ 
+.dangky-thq-text-link-list-elm2 {
+  gap: 12px;
+  width: 262px;
+  display: flex;
+  align-items: flex-start;
+  flex-shrink: 0;
+  flex-direction: column;
+}
+ 
+.dangky-thq-title-elm3 {
+  display: flex;
+  padding: 0 0 16px;
+  align-self: stretch;
+  align-items: flex-start;
+  flex-direction: column;
+}
+ 
+.dangky-thq-text-strong-elm2 {
+  display: flex;
+  align-items: flex-start;
+}
+ 
+.dangky-thq-text-elm17 {
+  color: rgba(30, 30, 30, 1);
+  height: auto;
+  text-align: left;
+  line-height: 120.00000476837158%;
+}
+ 
+.dangky-thq-frame69-elm {
+  gap: 18px;
+  top: 131px;
+  left: 32px;
+  width: 374px;
+  display: flex;
+  position: absolute;
+  align-items: flex-end;
+  flex-shrink: 0;
+  flex-direction: column;
+}
+ 
+.dangky-thq-frameach-elm1 {
+  gap: 6px;
+  display: flex;
+  align-self: stretch;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+ 
+.dangky-thq-mappin-elm1 {
+  width: 24px;
+  height: 24px;
+}
+ 
+.dangky-thq-text-elm18 {
+  width: 344px;
+  display: flex;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+ 
+.dangky-thq-text-elm19 {
+  color: rgba(30, 30, 30, 1);
+  height: auto;
+  flex-grow: 1;
+  text-align: left;
+  line-height: 139.9999976158142%;
+}
+ 
+.dangky-thq-frameach-elm2 {
+  gap: 6px;
+  display: flex;
+  align-self: stretch;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+ 
+.dangky-thq-mappin-elm2 {
+  width: 24px;
+  height: 24px;
+}
+ 
+.dangky-thq-text-elm20 {
+  width: 344px;
+  display: flex;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+ 
+.dangky-thq-text-elm21 {
+  color: rgba(30, 30, 30, 1);
+  height: auto;
+  flex-grow: 1;
+  text-align: left;
+  line-height: 139.9999976158142%;
+}
+ 
+.dangky-thq-hotline-elm {
+  gap: 6px;
+  display: flex;
+  align-self: stretch;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+ 
+.dangky-thq-phone-elm {
+  width: 20px;
+  height: 20px;
+}
+ 
+.dangky-thq-text-elm22 {
+  width: 348px;
+  display: flex;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+ 
+.dangky-thq-text-elm23 {
+  color: rgba(30, 30, 30, 1);
+  height: auto;
+  flex-grow: 1;
+  text-align: left;
+  line-height: 139.9999976158142%;
+}
+ 
+.dangky-thq-mail-elm1 {
+  gap: 6px;
+  display: flex;
+  align-self: stretch;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+ 
+.dangky-thq-mail-elm2 {
+  width: 24px;
+  height: 24px;
+}
+ 
+.dangky-thq-text-elm24 {
+  width: 344px;
+  display: flex;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+ 
+.dangky-thq-text-elm25 {
+  color: rgba(30, 30, 30, 1);
+  height: auto;
+  flex-grow: 1;
+  text-align: left;
+  line-height: 139.9999976158142%;
+}
+ 
+.dangky-thq-frame70-elm {
+  gap: 21px;
+  top: 86px;
+  left: 1168px;
+  width: 223px;
+  display: flex;
+  position: absolute;
+  align-items: center;
+}
+ 
+.dangky-thq-socialicon-elm1 {
+  width: 40px;
+  height: 40px;
+}
+ 
+.dangky-thq-socialicon-elm2 {
+  width: 40px;
+  height: 40px;
+}
+ 
+.dangky-thq-instagram-elm1 {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  position: relative;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+ 
+.dangky-thq-bg-elm1 {
+  top: 2.5px;
+  left: 2.5px;
+  width: 35px;
+  height: 35px;
+  position: absolute;
+  border-radius: 6px;
+}
+ 
+.dangky-thq-bg-elm2 {
+  top: 2.5px;
+  left: 2.5px;
+  width: 35px;
+  height: 35px;
+  position: absolute;
+  border-radius: 6px;
+}
+ 
+.dangky-thq-bg-elm3 {
+  top: 2.5px;
+  left: 2.5px;
+  width: 35px;
+  height: 35px;
+  position: absolute;
+  border-radius: 6px;
+}
+ 
+.dangky-thq-instagram-elm2 {
+  top: 7.5px;
+  left: 7.5px;
+  width: 25px;
+  height: 25px;
+  position: absolute;
+}
+ 
+.dangky-thq-socialicon-elm3 {
+  width: 40px;
+  height: 40px;
+}
+ 
+.dangky-thq-text-strong-elm3 {
+  top: 34px;
+  left: 1168px;
+  width: 226px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+}
+ 
+.dangky-thq-text-elm26 {
+  color: rgba(30, 30, 30, 1);
+  height: auto;
+  text-align: left;
+  line-height: 120.00000476837158%;
+}
+ 
+.dangky-link {
+  display: contents;
+}
+ 
+.dangky-container2 {
+  right: 50px;
+  border: 1px solid #ffffff5c;
+  bottom: 30px;
+  display: flex;
+  z-index: 22;
+  position: fixed;
+  box-shadow: 5px 5px 10px 0px rgba(31, 31, 31, 0.4);
+  min-height: auto;
+  align-items: center;
+  padding-top: 8px;
+  padding-left: 12px;
+  border-radius: 8px;
+  padding-right: 12px;
+  padding-bottom: 8px;
+  backdrop-filter: blur(6px);
+  background-color: rgba(41, 41, 41, 0.41);
+}
+ 
+.dangky-icon1 {
+  width: 24px;
+  margin-right: 4px;
+}
+ 
+.dangky-text {
+  color: white;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px;
+}

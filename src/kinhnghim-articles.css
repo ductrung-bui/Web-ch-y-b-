@@ -1,0 +1,233 @@
+/* Trang Kinh nghiệm — danh sách bài + phân trang (khớp trang chủ) */
+
+/* Chỉ dùng 1 hàng list Figma — ẩn 2 khối placeholder trùng (6 bài giả) */
+.teleport-page--kinhnghim [class*='bivitkinhnghim-elm2'],
+.teleport-page--kinhnghim [class*='bivitkinhnghim-elm3'] {
+  display: none !important;
+  visibility: hidden !important;
+  height: 0 !important;
+  overflow: hidden !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Card trống — áp dụng toàn trang (không chỉ trong .kinhnghim-articles-list) */
+.teleport-page--kinhnghim .article-card-slot--empty {
+  display: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+.teleport-page--kinhnghim .kinhnghim-articles-list {
+  width: 100% !important;
+  max-width: 1310px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding: 0 !important;
+  box-sizing: border-box !important;
+}
+
+.teleport-page--kinhnghim .kinhnghim-articles-list [class*='frame117-elm'] {
+  width: 100% !important;
+  max-width: 100% !important;
+  gap: 24px !important;
+}
+
+.teleport-page--kinhnghim .kinhnghim-articles-list [class*='frame115-elm'] {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 auto !important;
+  gap: 24px !important;
+  align-items: stretch !important;
+  justify-content: stretch !important;
+}
+
+.teleport-page--kinhnghim .kinhnghim-articles-list [class*='bivitmivkinhnghim-elm']:not(.article-card-slot--empty) {
+  display: flex !important;
+  flex-direction: column !important;
+  width: 100% !important;
+  max-width: none !important;
+  min-width: 0 !important;
+  height: auto !important;
+  min-height: 480px !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  position: relative !important;
+  justify-content: flex-start !important;
+  align-items: stretch !important;
+  border-radius: 20px;
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid rgba(217, 217, 217, 1);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  cursor: pointer;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.teleport-page--kinhnghim .kinhnghim-articles-list [class*='bivitmivkinhnghim-elm']:hover {
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+.teleport-page--kinhnghim .kinhnghim-articles-list [class*='khungbivitmi-elm'] {
+  display: flex !important;
+  flex-direction: column !important;
+  width: 100% !important;
+  height: auto !important;
+  min-height: 0 !important;
+  padding: 0 !important;
+  gap: 0 !important;
+  flex: 0 0 auto !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  position: static !important;
+}
+
+.teleport-page--kinhnghim .kinhnghim-articles-list [class*='section-elm'] {
+  width: 100% !important;
+  height: 220px !important;
+  min-height: 220px !important;
+  max-height: 220px !important;
+  flex-shrink: 0 !important;
+  border-radius: 0 !important;
+  background-color: rgba(245, 245, 245, 1) !important;
+  background-position: center !important;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+  background-image: none;
+}
+
+.teleport-page--kinhnghim .kinhnghim-articles-list [class*='nidungbivitmi-elm'] {
+  position: relative !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  height: auto !important;
+  min-height: 0 !important;
+  flex: 1 1 auto !important;
+  z-index: 2 !important;
+  margin-top: 0 !important;
+  padding: 16px 16px 20px !important;
+  box-sizing: border-box !important;
+  gap: 10px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  overflow: visible !important;
+  background: #fff !important;
+}
+
+.teleport-page--kinhnghim .kinhnghim-articles-list .home-article-card__title-wrap,
+.teleport-page--kinhnghim .kinhnghim-articles-list [class*='nidungbivitmi-elm'] > :first-child {
+  display: block !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  flex-shrink: 0 !important;
+  overflow: visible !important;
+}
+
+.teleport-page--kinhnghim .kinhnghim-articles-list .home-article-card__title-wrap > div,
+.teleport-page--kinhnghim .kinhnghim-articles-list [class*='nidungbivitmi-elm'] > :first-child > div {
+  width: 100% !important;
+  max-width: 100% !important;
+  display: block !important;
+}
+
+.teleport-page--kinhnghim .kinhnghim-articles-list .home-article-card__title,
+.teleport-page--kinhnghim .kinhnghim-articles-list [class*='nidungbivitmi-elm'] > :first-child span {
+  display: -webkit-box !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  font-size: 18px !important;
+  font-weight: 700 !important;
+  line-height: 1.35 !important;
+  color: rgba(30, 30, 30, 1) !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  -webkit-line-clamp: 2 !important;
+  -webkit-box-orient: vertical !important;
+}
+
+.teleport-page--kinhnghim .kinhnghim-articles-list [class*='nidungbivitmi-elm'] [class*='frame114-elm'] {
+  display: flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  flex-shrink: 0;
+  width: auto !important;
+}
+
+.teleport-page--kinhnghim .kinhnghim-articles-list [class*='nidungbivitmi-elm'] [class*='frame114-elm'] img {
+  width: 18px !important;
+  height: 18px !important;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.teleport-page--kinhnghim .kinhnghim-articles-list [class*='nidungbivitmi-elm'] [class*='frame114-elm'] span {
+  color: rgba(118, 118, 118, 1) !important;
+  font-size: 14px !important;
+}
+
+.teleport-page--kinhnghim .kinhnghim-articles-list [class*='nidungbivitmi-elm'] > :last-child {
+  flex: 1 1 auto !important;
+  min-height: 0;
+  width: 100% !important;
+  max-width: 100% !important;
+  display: block !important;
+}
+
+.teleport-page--kinhnghim .kinhnghim-articles-list [class*='nidungbivitmi-elm'] > :last-child span {
+  display: -webkit-box !important;
+  -webkit-line-clamp: 4 !important;
+  -webkit-box-orient: vertical !important;
+  overflow: hidden !important;
+  font-size: 14px !important;
+  line-height: 1.5 !important;
+  color: rgba(30, 30, 30, 1) !important;
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+.teleport-page--kinhnghim [class*='articles-pagination-host'],
+.teleport-page--kinhnghim .kinhnghim-pagination--visible {
+  width: 100% !important;
+  max-width: 1310px !important;
+  margin: 32px auto 8px !important;
+  padding: 0 16px !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  min-height: 48px !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 2;
+}
+
+.teleport-page--kinhnghim [class*='articles-pagination-host'] [class*='pagination-elm'] {
+  width: 100% !important;
+  max-width: 480px !important;
+  margin: 0 auto !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 12px !important;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 1100px) {
+  .teleport-page--kinhnghim .kinhnghim-articles-list [class*='frame115-elm'] {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+
+@media (max-width: 720px) {
+  .teleport-page--kinhnghim .kinhnghim-articles-list [class*='frame115-elm'] {
+    grid-template-columns: 1fr !important;
+  }
+
+  .teleport-page--kinhnghim .kinhnghim-articles-list [class*='bivitmivkinhnghim-elm']:not(.article-card-slot--empty) {
+    min-height: 0 !important;
+  }
+}

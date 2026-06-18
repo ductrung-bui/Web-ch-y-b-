@@ -1,0 +1,120 @@
+/* Trang chủ — ô tìm kiếm + pill lọc danh mục */
+
+.teleport-page--mnhnhtrangch [class*='frame129-elm'] {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  align-self: stretch !important;
+  gap: 20px !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  padding: 0 16px;
+  box-sizing: border-box;
+}
+
+.teleport-page--mnhnhtrangch [class*='search-filter-elm'] {
+  width: 100% !important;
+  max-width: 538px !important;
+  display: flex !important;
+  justify-content: center !important;
+}
+
+.teleport-page--mnhnhtrangch [class*='search-elm1'].home-search-box {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  gap: 10px !important;
+  width: 100% !important;
+  min-height: 44px;
+  padding: 10px 16px !important;
+  border: 1px solid rgba(217, 217, 217, 1) !important;
+  border-radius: 9999px !important;
+  background-color: #fff !important;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.teleport-page--mnhnhtrangch .home-search-box__input {
+  flex: 1 1 auto;
+  min-width: 0;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-family: Inter, Noto Sans, system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.2;
+  color: rgba(30, 30, 30, 1);
+}
+
+.teleport-page--mnhnhtrangch .home-search-box__input::placeholder {
+  color: rgba(179, 179, 179, 1);
+}
+
+.teleport-page--mnhnhtrangch .home-search-box__icon {
+  width: 18px !important;
+  height: 18px !important;
+  flex-shrink: 0;
+  cursor: pointer;
+  object-fit: contain;
+}
+
+.teleport-page--mnhnhtrangch [class*='frame128-elm'] {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 10px !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box;
+}
+
+/* Ẩn nút icon trống (Figma export) — chỉ giữ pill chữ */
+.teleport-page--mnhnhtrangch [class*='frame128-elm'] > button:empty,
+.teleport-page--mnhnhtrangch [class*='frame128-elm'] > button:not(:has(span)) {
+  display: none !important;
+}
+
+.teleport-page--mnhnhtrangch .home-filter-pill {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 10px 18px !important;
+  border: 1px solid rgba(118, 118, 118, 1) !important;
+  border-radius: 20px !important;
+  background-color: rgba(227, 227, 227, 1) !important;
+  cursor: pointer;
+  flex-shrink: 0;
+  font-family: Inter, Noto Sans, system-ui, sans-serif;
+  transition: background-color 0.15s, border-color 0.15s, color 0.15s;
+}
+
+.teleport-page--mnhnhtrangch .home-filter-pill span {
+  font-size: 15px !important;
+  line-height: 1.2 !important;
+  white-space: nowrap;
+  color: rgba(30, 30, 30, 1) !important;
+}
+
+.teleport-page--mnhnhtrangch .home-filter-pill--active {
+  background-color: rgba(44, 44, 44, 1) !important;
+  border-color: rgba(44, 44, 44, 1) !important;
+}
+
+.teleport-page--mnhnhtrangch .home-filter-pill--active span {
+  color: rgba(245, 245, 245, 1) !important;
+}
+
+@media (max-width: 900px) {
+  .teleport-page--mnhnhtrangch [class*='frame129-elm'] {
+    padding: 0 12px;
+  }
+
+  .teleport-page--mnhnhtrangch .home-filter-pill {
+    padding: 8px 14px !important;
+  }
+
+  .teleport-page--mnhnhtrangch .home-filter-pill span {
+    font-size: 14px !important;
+  }
+}

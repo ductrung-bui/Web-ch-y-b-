@@ -1,0 +1,336 @@
+/* Trang Thông tin tài khoản (/thay-doi-mat-khau) */
+
+.teleport-page--thaydoimatkhau {
+  width: 100% !important;
+  overflow-x: hidden !important;
+}
+
+.teleport-page--thaydoimatkhau [class*='thaydoimatkhau-container1'] {
+  width: 100% !important;
+  align-items: stretch !important;
+  overflow-x: hidden !important;
+}
+
+.teleport-page--thaydoimatkhau [class*='thaydoimatkhau-link'] {
+  display: none !important;
+}
+
+.teleport-page--thaydoimatkhau [class*='mnhnhchititchuyni-elm'] {
+  width: 100% !important;
+  max-width: 1440px !important;
+  margin: 0 auto !important;
+  padding: 0 16px 48px !important;
+  box-sizing: border-box !important;
+  gap: 24px !important;
+}
+
+.teleport-page--thaydoimatkhau [class*='header-default-elm'] {
+  width: 100% !important;
+  max-width: 1240px !important;
+  margin: 0 auto !important;
+  box-sizing: border-box !important;
+}
+
+.teleport-page--thaydoimatkhau [class*='frame380-elm'] {
+  width: 100% !important;
+  max-width: 1240px !important;
+  height: auto !important;
+  min-height: 0 !important;
+  margin: 0 auto !important;
+  gap: 32px !important;
+  align-items: flex-start !important;
+  flex-wrap: wrap !important;
+  box-sizing: border-box !important;
+}
+
+.teleport-page--thaydoimatkhau [class*='frame396-elm'] {
+  width: 280px !important;
+  max-width: 100% !important;
+  height: auto !important;
+  flex-shrink: 0 !important;
+}
+
+.teleport-page--thaydoimatkhau [class*='frame792743-elm'] {
+  flex: 1 1 520px !important;
+  width: 100% !important;
+  max-width: 900px !important;
+  min-width: 0 !important;
+  height: auto !important;
+  padding: 0 !important;
+  align-items: stretch !important;
+  flex-direction: column !important;
+  gap: 16px !important;
+  box-sizing: border-box !important;
+}
+
+.teleport-page--thaydoimatkhau [class*='frame792742-elm'] {
+  width: 100% !important;
+  height: auto !important;
+  padding: 0 !important;
+  align-items: stretch !important;
+  flex-direction: column !important;
+  gap: 16px !important;
+  box-sizing: border-box !important;
+}
+
+.teleport-page--thaydoimatkhau [class*='text-elm24'] {
+  font-size: clamp(26px, 4vw, 32px) !important;
+  line-height: 1.25 !important;
+}
+
+.teleport-page--thaydoimatkhau .account-profile-panel,
+.teleport-page--thaydoimatkhau [class*='frame792740-elm'] {
+  width: 100% !important;
+  padding: 24px 20px !important;
+  border: 1px solid rgba(217, 217, 217, 1) !important;
+  border-radius: 20px !important;
+  background: #fff !important;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  box-sizing: border-box !important;
+}
+
+.teleport-page--thaydoimatkhau .account-profile-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.teleport-page--thaydoimatkhau .account-profile-panel__head {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+  padding-bottom: 4px;
+}
+
+.teleport-page--thaydoimatkhau .account-profile-panel__avatar-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.teleport-page--thaydoimatkhau .account-profile-panel__avatar-wrap {
+  position: relative;
+}
+
+.teleport-page--thaydoimatkhau .account-profile-panel__avatar-upload {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 16px;
+  border-radius: 8px;
+  background: rgba(40, 116, 222, 1);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: Inter, Noto Sans, system-ui, sans-serif;
+}
+
+.teleport-page--thaydoimatkhau .account-profile-panel__avatar-upload:hover {
+  background: rgba(30, 96, 190, 1);
+}
+
+.teleport-page--thaydoimatkhau .account-profile-panel__avatar-remove {
+  padding: 0;
+  border: none;
+  background: none;
+  color: rgba(117, 117, 117, 1);
+  font-size: 13px;
+  text-decoration: underline;
+  cursor: pointer;
+  font-family: Inter, Noto Sans, system-ui, sans-serif;
+}
+
+.teleport-page--thaydoimatkhau .account-profile-panel__avatar-remove:hover {
+  color: rgba(198, 40, 40, 1);
+}
+
+.teleport-page--thaydoimatkhau .account-profile-panel__avatar-hint {
+  margin: 0;
+  font-size: 12px;
+  color: rgba(140, 140, 140, 1);
+  text-align: center;
+  max-width: 120px;
+  line-height: 1.35;
+}
+
+.teleport-page--thaydoimatkhau .account-profile-panel__avatar {
+  width: 88px;
+  height: 88px;
+  min-width: 88px;
+  border-radius: 50%;
+  position: relative;
+  flex-shrink: 0;
+  border: 2px solid rgba(217, 217, 217, 0.8);
+}
+
+.teleport-page--thaydoimatkhau .account-profile-panel__avatar.user-avatar--initial {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.teleport-page--thaydoimatkhau .account-profile-panel__avatar .teleport-user-avatar-initial {
+  font-size: 32px;
+}
+
+.teleport-page--thaydoimatkhau .account-profile-panel__avatar .teleport-user-avatar-img {
+  border-radius: 50%;
+}
+
+.teleport-page--thaydoimatkhau .account-profile-panel__identity {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.teleport-page--thaydoimatkhau .account-profile-panel__name {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+  color: rgba(30, 30, 30, 1);
+  line-height: 1.3;
+  word-break: break-word;
+}
+
+.teleport-page--thaydoimatkhau .account-profile-panel__email {
+  margin: 0;
+  font-size: 14px;
+  color: rgba(117, 117, 117, 1);
+  word-break: break-all;
+}
+
+.teleport-page--thaydoimatkhau .account-profile-panel__title,
+.teleport-page--thaydoimatkhau .account-password-heading {
+  margin: 0 0 4px;
+  font-size: 20px;
+  font-weight: 700;
+  color: rgba(30, 30, 30, 1);
+}
+
+.teleport-page--thaydoimatkhau .account-password-heading {
+  margin-top: 8px;
+}
+
+.teleport-page--thaydoimatkhau .account-profile-panel__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+}
+
+.teleport-page--thaydoimatkhau .account-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.teleport-page--thaydoimatkhau .account-field__label {
+  font-size: 14px;
+  font-weight: 600;
+  color: rgba(30, 30, 30, 1);
+}
+
+.teleport-page--thaydoimatkhau .account-field__input {
+  width: 100%;
+  padding: 12px 16px;
+  font-size: 16px;
+  font-family: Inter, Noto Sans, system-ui, sans-serif;
+  border: 1px solid rgba(217, 217, 217, 1);
+  border-radius: 8px;
+  box-sizing: border-box;
+  color: rgba(30, 30, 30, 1);
+  background: #fff;
+}
+
+.teleport-page--thaydoimatkhau .account-field__input:read-only {
+  background: rgba(245, 245, 245, 1);
+  color: rgba(118, 118, 118, 1);
+}
+
+.teleport-page--thaydoimatkhau .account-field__input:focus {
+  outline: 2px solid rgba(15, 140, 229, 0.35);
+  border-color: rgba(15, 140, 229, 1);
+}
+
+.teleport-page--thaydoimatkhau .account-profile-panel__save,
+.teleport-page--thaydoimatkhau [class*='button-elm'] {
+  align-self: flex-start;
+  padding: 12px 28px !important;
+  border: none !important;
+  border-radius: 8px !important;
+  background: rgba(44, 44, 44, 1) !important;
+  color: #fff !important;
+  font-size: 16px !important;
+  font-weight: 600 !important;
+  cursor: pointer;
+  font-family: Inter, Noto Sans, system-ui, sans-serif;
+}
+
+.teleport-page--thaydoimatkhau [class*='button-elm'] span {
+  color: #fff !important;
+}
+
+.teleport-page--thaydoimatkhau [class*='input-elm'] {
+  width: 100% !important;
+  max-width: 100% !important;
+  height: auto !important;
+  min-height: 48px !important;
+  color: rgba(30, 30, 30, 1) !important;
+  box-sizing: border-box !important;
+}
+
+.teleport-page--thaydoimatkhau [class*='input-field-elm'] {
+  width: 100% !important;
+  height: auto !important;
+}
+
+.teleport-page--thaydoimatkhau [class*='input-field-elm2'],
+.teleport-page--thaydoimatkhau [class*='input-field-elm4'],
+.teleport-page--thaydoimatkhau [class*='input-field-elm6'] {
+  width: 100% !important;
+  height: auto !important;
+}
+
+.teleport-page--thaydoimatkhau .account-form-msg,
+.teleport-page--thaydoimatkhau .account-profile-panel__msg,
+.teleport-page--thaydoimatkhau .account-password-msg {
+  margin: 0;
+  font-size: 14px;
+}
+
+.teleport-page--thaydoimatkhau .account-form-msg--success,
+.teleport-page--thaydoimatkhau .account-profile-panel__msg.account-form-msg--success,
+.teleport-page--thaydoimatkhau .account-password-msg.account-form-msg--success {
+  color: rgba(22, 120, 55, 1);
+}
+
+.teleport-page--thaydoimatkhau .account-form-msg--error,
+.teleport-page--thaydoimatkhau .account-profile-panel__msg.account-form-msg--error,
+.teleport-page--thaydoimatkhau .account-password-msg.account-form-msg--error {
+  color: rgba(235, 34, 30, 1);
+}
+
+@media (min-width: 720px) {
+  .teleport-page--thaydoimatkhau .account-profile-panel__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .teleport-page--thaydoimatkhau .account-field:first-child {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 900px) {
+  .teleport-page--thaydoimatkhau [class*='frame396-elm'] {
+    width: 100% !important;
+  }
+
+  .teleport-page--thaydoimatkhau [class*='frame792742-elm'] {
+    flex-basis: 100% !important;
+    max-width: 100% !important;
+  }
+}

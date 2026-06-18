@@ -1,0 +1,136 @@
+/* Reset + base Teleport (trích từ export HTML) */
+html {
+  line-height: 1.15;
+  scroll-behavior: smooth;
+}
+body {
+  margin: 0;
+}
+* {
+  box-sizing: border-box;
+  border-width: 0;
+  border-style: solid;
+  -webkit-font-smoothing: antialiased;
+}
+p,
+li,
+ul,
+pre,
+div,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+figure,
+blockquote,
+figcaption {
+  margin: 0;
+  padding: 0;
+}
+button {
+  background-color: transparent;
+}
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit;
+  font-size: 100%;
+  line-height: 1.15;
+  margin: 0;
+}
+button,
+select {
+  text-transform: none;
+}
+button,
+[type='button'],
+[type='reset'],
+[type='submit'] {
+  -webkit-appearance: button;
+  color: inherit;
+}
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+img {
+  display: block;
+}
+details {
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+summary::-webkit-details-marker {
+  display: none;
+}
+[data-thq='accordion'] [data-thq='accordion-content'] {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-in-out;
+  padding: 0;
+}
+[data-thq='accordion']
+  details[data-thq='accordion-trigger'][open]
+  + [data-thq='accordion-content'] {
+  max-height: 1000vh;
+}
+details[data-thq='accordion-trigger'][open] summary [data-thq='accordion-icon'] {
+  transform: rotate(180deg);
+}
+
+html {
+  font-family: Inter, system-ui, sans-serif;
+  font-size: 16px;
+}
+
+body {
+  font-weight: 400;
+  font-style: normal;
+  text-decoration: none;
+  text-transform: none;
+  letter-spacing: normal;
+  line-height: 1.15;
+  color: var(--dl-color-theme-neutral-dark, #1a1a1a);
+  background: var(--dl-color-theme-neutral-light, #f8f8f8);
+  fill: var(--dl-color-theme-neutral-dark, #1a1a1a);
+}
+
+.teleport-page {
+  width: 100%;
+  max-width: 100%;
+  min-height: 100vh;
+  box-sizing: border-box;
+  color: var(--dl-color-theme-neutral-dark, #1a1a1a);
+  font-family: Inter, Noto Sans, system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.15;
+  background: #fff;
+}
+
+/* Không kế thừa typography global từ theme Vite */
+.teleport-page h1,
+.teleport-page h2,
+.teleport-page h3,
+.teleport-page h4,
+.teleport-page h5,
+.teleport-page h6,
+.teleport-page p {
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  letter-spacing: inherit;
+  margin: 0;
+  color: inherit;
+}
+
+.teleport-page img[class*='user-elm'],
+.teleport-page img[class*='calendar-elm'] {
+  display: block;
+  flex-shrink: 0;
+  object-fit: contain;
+}

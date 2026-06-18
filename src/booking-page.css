@@ -1,0 +1,1571 @@
+/* Luồng đặt vé Teleport */
+
+.booking-flow-message {
+  width: 100%;
+  max-width: 1310px;
+  margin: 0 auto 12px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  background: #f5f5f5;
+  color: #1e1e1e;
+  font-size: 15px;
+  line-height: 1.4;
+}
+
+.booking-flow-message--error {
+  background: #fff0f0;
+  color: #b42318;
+}
+
+.booking-clickable {
+  cursor: pointer !important;
+}
+
+.booking-month-tab--active {
+  outline: 2px solid rgba(15, 140, 229, 0.55);
+  outline-offset: 2px;
+  border-radius: 8px;
+}
+
+.booking-schedule-card {
+  cursor: pointer !important;
+  transition: box-shadow 0.15s ease, outline 0.15s ease;
+}
+
+.booking-schedule-card--selected {
+  outline: 3px solid rgba(15, 140, 229, 0.65);
+  outline-offset: 2px;
+  box-shadow: 0 4px 16px rgba(15, 140, 229, 0.2);
+}
+
+.booking-seat-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 16px;
+  padding: 12px;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* Sơ đồ ghế xe — thay layout Figma tĩnh */
+[class*='vtrgh-elm'] {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: stretch !important;
+  width: 100% !important;
+  max-width: 560px !important;
+  min-height: 280px;
+  padding: 20px 24px 24px !important;
+  box-sizing: border-box;
+  gap: 12px !important;
+}
+
+[class*='vtrgh-elm'] > [class*='frame158-elm'] {
+  display: none !important;
+}
+
+.booking-bus-map {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}
+
+.booking-bus-map__front {
+  width: 100%;
+  max-width: 120px;
+  padding: 6px 12px;
+  border-radius: 8px;
+  background: rgba(118, 145, 255, 0.2);
+  color: #1e1e1e;
+  font-size: 12px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.booking-bus-map__row {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+}
+
+.booking-bus-map__gap {
+  width: 28px;
+  min-width: 28px;
+  flex-shrink: 0;
+}
+
+.booking-bus-map__seat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  min-width: 48px;
+  min-height: 52px;
+  padding: 4px 6px;
+  border: none;
+  border-radius: 10px;
+  background: transparent;
+  cursor: pointer;
+}
+
+.booking-bus-map__seat--booked {
+  cursor: default;
+  opacity: 0.95;
+}
+
+.booking-bus-map__seat--selected {
+  background: rgba(15, 140, 229, 0.12);
+  outline: 2px solid rgba(15, 140, 229, 0.55);
+}
+
+.booking-bus-map__icon {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+.booking-bus-map__num {
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1;
+  color: #1e1e1e;
+}
+
+.booking-legend-swatch {
+  width: 28px !important;
+  height: 28px !important;
+  min-width: 28px !important;
+  min-height: 28px !important;
+  border-radius: 6px !important;
+  background-color: transparent !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  background-size: 24px !important;
+}
+
+.booking-legend-swatch--empty {
+  background-image: url(/icons/seat-empty.svg) !important;
+}
+
+.booking-legend-swatch--selected {
+  background-image: url(/icons/seat-selected.svg) !important;
+}
+
+.booking-legend-swatch--booked {
+  background-image: url(/icons/seat-booked.svg) !important;
+}
+
+.teleport-page--manhinhchonvitrighengoi [class*='frame257-elm'] {
+  display: flex !important;
+  flex-wrap: wrap;
+  gap: 16px 24px !important;
+}
+
+.teleport-page--manhinhchonthoigianchuyendi [class*='khungchnthigian-elm'],
+.teleport-page--manhinhchonvitrighengoi [class*='khungchnthigian-elm'] {
+  width: 100% !important;
+  max-width: 1310px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  overflow: hidden !important;
+  box-sizing: border-box !important;
+}
+
+.teleport-page--manhinhchonvitrighengoi [class*='mnhnhchititchuyni-elm'] {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  overflow: visible !important;
+  box-sizing: border-box !important;
+  align-items: stretch !important;
+}
+
+.teleport-page--manhinhchonvitrighengoi [class*='frame249-elm1'] {
+  width: 100% !important;
+  max-width: 100% !important;
+  display: flex !important;
+  flex-direction: column !important;
+  flex-wrap: nowrap !important;
+  gap: 20px !important;
+  align-items: stretch !important;
+  justify-content: flex-start !important;
+  padding: 24px 20px !important;
+  box-sizing: border-box !important;
+  overflow: hidden !important;
+}
+
+.teleport-page--manhinhchonvitrighengoi [class*='frame266-elm'] {
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+  flex: 0 0 auto !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: stretch !important;
+  gap: 10px !important;
+  padding: 20px 16px !important;
+  box-sizing: border-box !important;
+  overflow: hidden !important;
+}
+
+.teleport-page--manhinhchonvitrighengoi [class*='frame266-elm'] > [class*='text-elm'] {
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+  align-self: stretch !important;
+  flex-shrink: 1 !important;
+}
+
+.teleport-page--manhinhchonvitrighengoi [class*='frame266-elm'] [class*='text-elm278'],
+.teleport-page--manhinhchonvitrighengoi [class*='frame266-elm'] [class*='text-elm279'] {
+  width: 100% !important;
+  max-width: 100% !important;
+  justify-content: flex-start !important;
+}
+
+.teleport-page--manhinhchonvitrighengoi [class*='frame266-elm'] [class*='text-elm280'] {
+  font-size: clamp(20px, 3.5vw, 28px) !important;
+  line-height: 1.2 !important;
+  white-space: normal !important;
+  word-break: break-word !important;
+}
+
+.booking-seats-available-count {
+  margin: 0;
+  padding: 0;
+  font-size: 15px;
+  line-height: 1.4;
+  color: rgba(30, 30, 30, 0.75);
+}
+
+.teleport-page--manhinhchonvitrighengoi [class*='frame274-elm'],
+.teleport-page--manhinhchonthoigianchuyendi [class*='frame273-elm'],
+.teleport-page--manhinhchonthoigianchuyendi [class*='frame274-elm'] {
+  width: 100% !important;
+  max-width: 100% !important;
+  gap: 16px !important;
+  box-sizing: border-box !important;
+}
+
+.booking-seat-btn {
+  min-width: 44px;
+  height: 40px;
+  padding: 0 10px;
+  border: 1px solid #d9d9d9;
+  border-radius: 10px;
+  background: #fff;
+  color: #1e1e1e;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.booking-seat-btn:disabled {
+  background: #eee;
+  color: #999;
+  cursor: not-allowed;
+}
+
+.booking-seat-btn--selected {
+  background: #0f8ce5;
+  border-color: #0f8ce5;
+  color: #fff;
+}
+
+.booking-payment-summary {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 0 20px;
+  padding: 16px 20px;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 6px 6px 18px rgba(0, 0, 0, 0.12);
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.booking-payment-summary p {
+  margin: 0 0 8px;
+}
+
+/* Tên chuyến dài — sidebar đặt vé */
+[class*='teleport-page--manhinhchon'] [class*='framenhtv-elm'],
+.teleport-page--dichvubosung [class*='framenhtv-elm'],
+.teleport-page--manhinhdienthongtin [class*='framenhtv-elm'],
+.teleport-page--manhinhthanhtoan [class*='framenhtv-elm'] {
+  overflow: hidden !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+}
+
+[class*='teleport-page--manhinhchon'] [class*='framenhtv-elm'] [class*='text-elm53'],
+[class*='teleport-page--manhinhchon'] [class*='framenhtv-elm'] [class*='text-elm54'] {
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+  padding: 0 14px !important;
+  box-sizing: border-box !important;
+  justify-content: flex-start !important;
+}
+
+[class*='teleport-page--manhinhchon'] [class*='framenhtv-elm'] [class*='text-elm55'] {
+  display: -webkit-box !important;
+  -webkit-box-orient: vertical !important;
+  -webkit-line-clamp: 3 !important;
+  overflow: hidden !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  word-break: break-word !important;
+  overflow-wrap: break-word !important;
+  text-align: left !important;
+  line-height: 1.35 !important;
+}
+
+/* Thẻ lịch khởi hành — tiêu đề trong ô 350px */
+.booking-schedule-card[class*='frame146-elm'],
+.booking-schedule-card[class*='frame147-elm'],
+.booking-schedule-card[class*='frame148-elm'],
+.booking-schedule-card[class*='frame149-elm'] {
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+  padding: 14px 16px 20px !important;
+  overflow: hidden !important;
+  box-sizing: border-box !important;
+}
+
+.booking-schedule-card > [class*='text-elm']:first-child {
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+}
+
+.booking-schedule-card > [class*='text-elm']:first-child span {
+  display: -webkit-box !important;
+  -webkit-box-orient: vertical !important;
+  -webkit-line-clamp: 2 !important;
+  overflow: hidden !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  word-break: break-word !important;
+  overflow-wrap: break-word !important;
+  text-align: center !important;
+  line-height: 1.3 !important;
+  font-size: clamp(14px, 2.2vw, 18px) !important;
+}
+
+[class*='teleport-page--manhinhchon'] [class*='calendar-button-elm'] {
+  min-width: 28px;
+  min-height: 28px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  font-weight: 600;
+  color: #1e1e1e;
+}
+
+/* —— Thanh 5 bước đặt vé — căn giữa —— */
+.booking-steps-bar,
+.teleport-page--manhinhchonthoigianchuyendi [class*='frame142-elm'],
+.teleport-page--manhinhchonvitrighengoi [class*='frame142-elm'],
+.teleport-page--dichvubosung [class*='frame142-elm'],
+.teleport-page--manhinhdienthongtin [class*='frame142-elm'],
+.teleport-page--manhinhthanhtoan [class*='frame142-elm'] {
+  width: 100% !important;
+  max-width: 100% !important;
+  display: flex !important;
+  flex-wrap: nowrap !important;
+  justify-content: center !important;
+  align-items: center !important;
+  align-self: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding-left: 16px !important;
+  padding-right: 16px !important;
+  overflow-x: auto;
+  box-sizing: border-box !important;
+  gap: 0 !important;
+}
+
+.booking-steps-bar > [class*='frame13'],
+.booking-steps-bar > [class*='frame14'] {
+  flex: 0 0 auto !important;
+}
+
+[class*='frame142-elm'] [class*='frames-elm'] {
+  position: relative;
+  padding: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-sizing: border-box;
+}
+
+[class*='frame142-elm'] [class*='frames-elm'] > div[class*='text-elm'] {
+  display: none !important;
+}
+
+.booking-step-icon {
+  width: 26px;
+  height: 26px;
+  object-fit: contain;
+  flex-shrink: 0;
+  pointer-events: none;
+}
+
+.booking-step-circle--active .booking-step-icon:not(.booking-step-icon--check) {
+  filter: brightness(0) invert(1);
+}
+
+.booking-step-circle--done {
+  background-color: rgba(20, 174, 92, 1) !important;
+  border-color: rgba(20, 174, 92, 1) !important;
+}
+
+.booking-step-circle--active {
+  background-color: rgba(80, 86, 255, 1) !important;
+  border-color: rgba(80, 86, 255, 1) !important;
+  border-width: 0 !important;
+}
+
+.booking-step-circle--pending {
+  background-color: #fff !important;
+  border: 2px solid #d9d9d9 !important;
+}
+
+.booking-step-circle--pending .booking-step-icon {
+  opacity: 0.75;
+}
+
+[class*='frame145-frame157-elm'] {
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+}
+
+[class*='frame142-elm'] img[class*='rectangle6-elm'] {
+  flex: 1 1 auto;
+  min-width: 24px;
+  max-width: 81px;
+  height: 2px !important;
+  object-fit: cover;
+}
+
+/* —— Nút Quay lại / Tiếp theo —— */
+.teleport-page--manhinhchonthoigianchuyendi [class*='frame273-elm'],
+.teleport-page--manhinhchonthoigianchuyendi [class*='frame274-elm'],
+.teleport-page--manhinhchonvitrighengoi [class*='frame273-elm'],
+.teleport-page--manhinhchonvitrighengoi [class*='frame274-elm'],
+.teleport-page--dichvubosung [class*='frame273-elm'],
+.teleport-page--dichvubosung [class*='frame274-elm'],
+.teleport-page--manhinhdienthongtin [class*='frame273-elm'],
+.teleport-page--manhinhdienthongtin [class*='frame274-elm'],
+.teleport-page--manhinhthanhtoan [class*='frame273-elm'],
+.teleport-page--manhinhthanhtoan [class*='frame274-elm'] {
+  width: 100% !important;
+  max-width: 100% !important;
+  gap: 16px !important;
+  flex-wrap: wrap;
+  justify-content: space-between !important;
+  box-sizing: border-box;
+}
+
+.booking-nav-btn[class*='frame267-elm'] {
+  width: auto !important;
+  min-width: 108px;
+  max-width: none;
+  height: auto !important;
+  min-height: 40px;
+  padding: 10px 18px !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex-direction: row !important;
+  flex-shrink: 0;
+  overflow: visible !important;
+  box-sizing: border-box;
+}
+
+.booking-nav-btn [class*='text-elm'] {
+  width: auto !important;
+  align-self: center !important;
+  justify-content: center !important;
+  flex-shrink: 0;
+  overflow: visible !important;
+}
+
+.booking-nav-btn span {
+  display: inline-block;
+  white-space: nowrap;
+  overflow: visible;
+  text-overflow: clip;
+  line-height: 1.25;
+}
+
+.booking-nav-btn--next[class*='frame267-elm'] {
+  min-width: 112px;
+}
+
+/* —— Dịch vụ bổ sung — layout responsive —— */
+.teleport-page--dichvubosung [class*='khungchnthigian-elm'] {
+  width: 100% !important;
+  max-width: 1310px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  overflow: hidden !important;
+  box-sizing: border-box !important;
+  align-items: stretch !important;
+}
+
+.teleport-page--dichvubosung [class*='frame275-elm'] {
+  width: 100% !important;
+  max-width: 100% !important;
+  gap: 16px !important;
+  flex-wrap: wrap !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+}
+
+.teleport-page--dichvubosung [class*='frame264-elm1'] {
+  width: 100% !important;
+  max-width: 100% !important;
+  height: auto !important;
+  min-height: 0 !important;
+  align-items: stretch !important;
+  padding: 20px 16px 24px !important;
+  box-sizing: border-box !important;
+}
+
+.teleport-page--dichvubosung [class*='frame264-elm2'] {
+  width: 100% !important;
+  max-width: 100% !important;
+  display: grid !important;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)) !important;
+  gap: 20px !important;
+  align-items: stretch !important;
+  justify-content: center !important;
+  flex-wrap: wrap !important;
+}
+
+.teleport-page--dichvubosung [class*='khungmuadchvbsung-elm'] {
+  width: 100% !important;
+  max-width: 100% !important;
+  height: auto !important;
+  min-height: 0 !important;
+  align-self: stretch !important;
+  box-sizing: border-box !important;
+}
+
+.teleport-page--dichvubosung [class*='framenhchuyni-elm'] {
+  width: 100% !important;
+  max-width: 100% !important;
+  height: 160px !important;
+  min-height: 120px !important;
+  gap: 0 !important;
+  border-radius: 16px 16px 0 0 !important;
+  overflow: hidden !important;
+  background-color: #e8e8e8 !important;
+  background-image: none !important;
+}
+
+.teleport-page--dichvubosung [class*='framenhchuyni-elm'].trip-image-slot--loaded {
+  background-color: transparent !important;
+}
+
+.teleport-page--dichvubosung [class*='framenhchuyni-elm'] .trip-image-slot__icon {
+  width: 48px !important;
+  height: 48px !important;
+  opacity: 0.45;
+}
+
+.teleport-page--dichvubosung [class*='frame260-elm'] {
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+.teleport-page--dichvubosung [class*='frame261-elm'] {
+  width: 100% !important;
+  max-width: 100% !important;
+  justify-content: center !important;
+  gap: 10px !important;
+  padding: 0 12px 14px !important;
+  box-sizing: border-box !important;
+}
+
+.teleport-page--dichvubosung [class*='calendar-button-elm'] {
+  min-width: 40px !important;
+  min-height: 40px !important;
+  width: 40px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 16px !important;
+  font-weight: 600 !important;
+  color: #1e1e1e !important;
+  border: 1px solid #d9d9d9 !important;
+  border-radius: 10px !important;
+  background: #fff !important;
+  cursor: default !important;
+  padding: 0 !important;
+  box-sizing: border-box !important;
+}
+
+.teleport-page--dichvubosung button[class*='icon-button-elm'] {
+  min-width: 40px !important;
+  min-height: 40px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 8px !important;
+  border-radius: 10px !important;
+  border: 1px solid #d9d9d9 !important;
+  background: #f5f5f5 !important;
+  cursor: pointer !important;
+  box-sizing: border-box !important;
+}
+
+.teleport-page--dichvubosung [class*='khungmuadchvbsung-elm'] [class*='minus-elm'],
+.teleport-page--dichvubosung [class*='khungmuadchvbsung-elm'] [class*='plus-elm'] {
+  width: 20px !important;
+  height: 20px !important;
+  object-fit: contain !important;
+  opacity: 1 !important;
+  pointer-events: none;
+}
+
+.teleport-page--dichvubosung [class*='frame266-elm'] {
+  width: 100% !important;
+  max-width: 100% !important;
+  flex-direction: column !important;
+  align-items: stretch !important;
+  gap: 12px !important;
+  padding: 24px 20px !important;
+  box-sizing: border-box !important;
+}
+
+.teleport-page--dichvubosung [class*='frame266-elm'] [class*='container2'],
+.teleport-page--dichvubosung [class*='frame266-elm'] [class*='container3'],
+.teleport-page--dichvubosung [class*='frame266-elm'] [class*='text-elm68'],
+.teleport-page--dichvubosung [class*='frame266-elm'] [class*='text-elm74'] {
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+}
+
+.teleport-page--dichvubosung [class*='frame266-elm'] [class*='text-elm70'],
+.teleport-page--dichvubosung [class*='frame266-elm'] [class*='text-elm73'],
+.teleport-page--dichvubosung [class*='frame266-elm'] [class*='text-elm74'],
+.teleport-page--dichvubosung [class*='frame266-elm'] [class*='text-elm79'] {
+  word-break: break-word !important;
+  white-space: normal !important;
+}
+
+.teleport-page--dichvubosung [class*='frame266-elm'] [class*='text-elm77'],
+.teleport-page--dichvubosung [class*='frame266-elm'] [class*='text-elm78'] {
+  width: 100% !important;
+  max-width: 100% !important;
+  justify-content: flex-start !important;
+}
+
+.teleport-page--dichvubosung [class*='frame266-elm'] [class*='text-elm79'] {
+  font-size: clamp(22px, 3.5vw, 32px) !important;
+  line-height: 1.2 !important;
+}
+
+/* —— Thông tin hành khách —— */
+.teleport-page--manhinhdienthongtin [class*='khungchnthigian-elm'] {
+  width: 100% !important;
+  max-width: 1310px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  overflow: visible !important;
+  box-sizing: border-box !important;
+  align-items: stretch !important;
+}
+
+.teleport-page--manhinhdienthongtin [class*='frame275-elm'] {
+  width: 100% !important;
+  max-width: 100% !important;
+  gap: 16px !important;
+  flex-wrap: wrap !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+}
+
+.teleport-page--manhinhdienthongtin [class*='frame264-elm'] {
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+  align-items: stretch !important;
+  gap: 20px !important;
+  padding: 32px 24px !important;
+  box-sizing: border-box !important;
+}
+
+.teleport-page--manhinhdienthongtin [class*='frame282-elm'] {
+  width: 100% !important;
+  max-width: 640px !important;
+  min-width: 0 !important;
+  gap: 20px !important;
+}
+
+/* Tiêu đề + tab hành khách */
+.teleport-page--manhinhdienthongtin .booking-passenger-header,
+.teleport-page--manhinhdienthongtin [class*='component2-elm'] {
+  width: 100% !important;
+  max-width: 100% !important;
+  height: auto !important;
+  min-height: 0 !important;
+  position: relative !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: stretch !important;
+  gap: 14px !important;
+  padding: 0 0 4px !important;
+  box-sizing: border-box !important;
+  overflow: visible !important;
+}
+
+.teleport-page--manhinhdienthongtin [class*='component2-elm'] [class*='text-elm33'] {
+  position: static !important;
+  top: auto !important;
+  left: auto !important;
+  width: 100% !important;
+  height: auto !important;
+  display: block !important;
+  margin: 0 0 2px !important;
+  flex-shrink: 0 !important;
+}
+
+.teleport-page--manhinhdienthongtin [class*='component2-elm'] [class*='text-elm34'] {
+  display: block !important;
+  font-size: clamp(20px, 2.5vw, 24px) !important;
+  line-height: 1.35 !important;
+}
+
+.teleport-page--manhinhdienthongtin [class*='component2-elm'] [class*='button-elm1'],
+.teleport-page--manhinhdienthongtin [class*='component2-elm'] [class*='button-elm2'],
+.teleport-page--manhinhdienthongtin [class*='component2-elm'] [class*='button-elm3'],
+.teleport-page--manhinhdienthongtin [class*='component2-elm'] [class*='rectangle7-elm'] {
+  display: none !important;
+}
+
+.teleport-page--manhinhdienthongtin .booking-passenger-tabs {
+  display: grid !important;
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  gap: 10px !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.teleport-page--manhinhdienthongtin .booking-passenger-tab {
+  min-height: 40px !important;
+  padding: 10px 8px !important;
+  border: 1px solid #d9d9d9 !important;
+  border-radius: 8px !important;
+  background: #f5f5f5 !important;
+  color: #1e1e1e !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  line-height: 1.2 !important;
+  text-align: center !important;
+  cursor: pointer !important;
+  box-sizing: border-box !important;
+  transition: background 0.15s, border-color 0.15s, color 0.15s !important;
+}
+
+.teleport-page--manhinhdienthongtin .booking-passenger-tab:hover {
+  border-color: #0f8ce5 !important;
+}
+
+.teleport-page--manhinhdienthongtin .booking-passenger-tab--active {
+  background: #0f8ce5 !important;
+  border-color: #0f8ce5 !important;
+  color: #fff !important;
+  box-shadow: 0 2px 8px rgba(15, 140, 229, 0.25) !important;
+}
+
+/* Form nhập liệu */
+.teleport-page--manhinhdienthongtin .booking-passenger-form-wrap,
+.teleport-page--manhinhdienthongtin [class*='button-frame283-elm'] {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: stretch !important;
+  gap: 18px !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border: none !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  cursor: default !important;
+  text-align: left !important;
+  appearance: none !important;
+}
+
+.teleport-page--manhinhdienthongtin .booking-passenger-form-wrap [class*='input-field-elm'],
+.teleport-page--manhinhdienthongtin .booking-passenger-form-wrap [class*='frame280-elm'] {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+.teleport-page--manhinhdienthongtin .booking-passenger-form-wrap [class*='input-field-elm2'],
+.teleport-page--manhinhdienthongtin .booking-passenger-form-wrap [class*='input-field-elm4'],
+.teleport-page--manhinhdienthongtin .booking-passenger-form-wrap [class*='input-field-elm6'],
+.teleport-page--manhinhdienthongtin .booking-passenger-form-wrap [class*='input-field-elm8'] {
+  width: 100% !important;
+  height: auto !important;
+}
+
+/* Tóm tắt trên nút xác nhận */
+.teleport-page--manhinhdienthongtin .booking-passenger-order-summary,
+.teleport-page--manhinhdienthongtin [class*='frame281-elm'].booking-passenger-order-summary {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 4px 0 0 !important;
+  padding: 0 !important;
+  border: none !important;
+  background: transparent !important;
+  display: block !important;
+  flex-direction: column !important;
+  align-items: stretch !important;
+  gap: 0 !important;
+}
+
+.teleport-page--manhinhdienthongtin .booking-passenger-order-summary__inner {
+  width: 100% !important;
+  padding: 20px 18px !important;
+  border: 1px solid #e5e5e5 !important;
+  border-radius: 16px !important;
+  background: #fafafa !important;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06) !important;
+  box-sizing: border-box !important;
+}
+
+.teleport-page--manhinhdienthongtin .booking-passenger-order-summary__heading {
+  margin: 0 0 14px !important;
+  padding: 0 0 10px !important;
+  border-bottom: 1px solid #e8e8e8 !important;
+  font-size: 16px !important;
+  font-weight: 700 !important;
+  color: #1e1e1e !important;
+  line-height: 1.3 !important;
+}
+
+.teleport-page--manhinhdienthongtin .booking-passenger-order-summary__rows {
+  margin: 0 !important;
+  padding: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 10px !important;
+}
+
+.teleport-page--manhinhdienthongtin .booking-passenger-order-summary__row {
+  display: grid !important;
+  grid-template-columns: minmax(108px, 34%) 1fr !important;
+  gap: 8px 12px !important;
+  align-items: start !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.teleport-page--manhinhdienthongtin .booking-passenger-order-summary__row dt {
+  margin: 0 !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  color: #757575 !important;
+  line-height: 1.4 !important;
+}
+
+.teleport-page--manhinhdienthongtin .booking-addon-summary-dd {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 4px !important;
+}
+
+.teleport-page--manhinhdienthongtin .booking-addon-summary-count {
+  font-weight: 700 !important;
+  color: #1e1e1e !important;
+}
+
+.teleport-page--manhinhdienthongtin .booking-addon-summary-detail {
+  font-size: 13px !important;
+  color: #5c5c5c !important;
+  line-height: 1.4 !important;
+}
+
+.teleport-page--manhinhdienthongtin .booking-order-addon-line {
+  margin: 0 0 6px !important;
+  font-size: 14px !important;
+  line-height: 1.4 !important;
+  color: #303030 !important;
+}
+
+.teleport-page--manhinhdienthongtin .booking-passenger-order-summary__row dd {
+  margin: 0 !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  color: #1e1e1e !important;
+  line-height: 1.45 !important;
+  word-break: break-word !important;
+}
+
+.teleport-page--manhinhdienthongtin .booking-passenger-order-summary__total {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  align-items: baseline !important;
+  justify-content: space-between !important;
+  gap: 8px 16px !important;
+  margin-top: 16px !important;
+  padding-top: 14px !important;
+  border-top: 2px solid #e0e0e0 !important;
+}
+
+.teleport-page--manhinhdienthongtin .booking-passenger-order-summary__total-label {
+  font-size: 15px !important;
+  font-weight: 600 !important;
+  color: #1e1e1e !important;
+}
+
+.teleport-page--manhinhdienthongtin .booking-passenger-order-summary__total-value {
+  font-size: clamp(22px, 3.5vw, 28px) !important;
+  font-weight: 700 !important;
+  color: #009951 !important;
+  line-height: 1.2 !important;
+}
+
+.teleport-page--manhinhdienthongtin [class*='frame281-elm'].booking-order-summary-box {
+  width: 100% !important;
+  max-width: 100% !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 10px !important;
+  margin: 4px 0 0 !important;
+  padding: 20px 18px !important;
+  border: 1px solid #e5e5e5 !important;
+  border-radius: 16px !important;
+  background: #fafafa !important;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06) !important;
+  box-sizing: border-box !important;
+}
+
+.teleport-page--manhinhdienthongtin [class*='frame281-elm'].booking-order-summary-box::before {
+  content: 'Tóm tắt đơn đặt vé';
+  display: block;
+  margin: 0 0 6px;
+  padding: 0 0 10px;
+  border-bottom: 1px solid #e8e8e8;
+  font-size: 16px;
+  font-weight: 700;
+  color: #1e1e1e;
+  line-height: 1.3;
+}
+
+.teleport-page--manhinhdienthongtin [class*='frame281-elm'] > [class*='text-elm'] {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  width: 100% !important;
+  position: static !important;
+  height: auto !important;
+  min-height: 0 !important;
+}
+
+.teleport-page--manhinhdienthongtin [class*='frame281-elm'] > [class*='text-elm'] span {
+  position: static !important;
+  width: auto !important;
+  height: auto !important;
+  white-space: normal !important;
+  word-break: break-word !important;
+  text-align: left !important;
+  font-size: 14px !important;
+  line-height: 1.4 !important;
+  color: #303030 !important;
+}
+
+.teleport-page--manhinhdienthongtin [class*='frame281-elm'] .booking-summary-price-stack {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  gap: 6px !important;
+  width: 100% !important;
+}
+
+.teleport-page--manhinhdienthongtin [class*='frame281-elm'] .booking-summary-addon-inline {
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  color: #303030 !important;
+}
+
+.teleport-page--manhinhdienthongtin [class*='frame281-elm'] .booking-summary-price-inline,
+.teleport-page--manhinhdienthongtin [class*='frame281-elm'] [class*='text-elm56'] {
+  font-size: clamp(22px, 3.5vw, 28px) !important;
+  font-weight: 700 !important;
+  color: #009951 !important;
+}
+
+.teleport-page--dichvubosung [class*='frame266-elm'] [class*='text-elm75'] {
+  width: 100% !important;
+  min-height: 0 !important;
+}
+
+.teleport-page--dichvubosung [class*='frame266-elm'] [class*='text-elm76'] {
+  display: block !important;
+  width: 100% !important;
+  min-height: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  line-height: 1.4 !important;
+  color: #303030 !important;
+  word-break: break-word !important;
+  white-space: normal !important;
+}
+
+/* Ô điểm đón */
+.teleport-page--manhinhdienthongtin .booking-pickup-field {
+  width: 100% !important;
+  max-width: 100% !important;
+  gap: 8px !important;
+}
+
+.teleport-page--manhinhdienthongtin .booking-pickup-field [class*='frame277-elm'] {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+.teleport-page--manhinhdienthongtin .booking-pickup-field__title,
+.teleport-page--manhinhdienthongtin .booking-pickup-field [class*='text-elm43'] {
+  font-weight: 700 !important;
+  font-size: 15px !important;
+  color: #1e1e1e !important;
+  line-height: 1.35 !important;
+}
+
+.teleport-page--manhinhdienthongtin .booking-pickup-field__box,
+.teleport-page--manhinhdienthongtin .booking-pickup-field [class*='input-elm8'] {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  gap: 10px !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  min-height: 48px !important;
+  padding: 12px 14px !important;
+  box-sizing: border-box !important;
+  border: 1px solid #d9d9d9 !important;
+  border-radius: 8px !important;
+  background: #fff !important;
+}
+
+.teleport-page--manhinhdienthongtin .booking-pickup-field__icon {
+  width: 22px !important;
+  height: 22px !important;
+  flex-shrink: 0 !important;
+  object-fit: contain !important;
+  opacity: 0.9 !important;
+}
+
+.teleport-page--manhinhdienthongtin .booking-pickup-field__value,
+.teleport-page--manhinhdienthongtin .booking-pickup-field [class*='text-elm44'] {
+  flex: 1 1 auto !important;
+  min-width: 0 !important;
+  font-weight: 700 !important;
+  font-size: 15px !important;
+  color: #1e1e1e !important;
+  line-height: 1.35 !important;
+  text-align: left !important;
+  word-break: break-word !important;
+}
+
+@media (max-width: 900px) {
+  .teleport-page--manhinhdienthongtin .booking-passenger-tabs {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  }
+}
+
+@media (max-width: 560px) {
+  .teleport-page--manhinhdienthongtin .booking-passenger-tabs {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  .teleport-page--manhinhdienthongtin .booking-passenger-order-summary__row {
+    grid-template-columns: 1fr !important;
+    gap: 2px !important;
+  }
+}
+
+/* Footer luồng đặt vé — full width, không bị cắt hai bên */
+.teleport-page--manhinhchonthoigianchuyendi [class*='container1'],
+.teleport-page--manhinhchonvitrighengoi [class*='container1'],
+.teleport-page--dichvubosung [class*='container1'],
+.teleport-page--manhinhdienthongtin [class*='container1'],
+.teleport-page--manhinhthanhtoan [class*='container1'] {
+  align-items: stretch !important;
+  width: 100% !important;
+  overflow-x: visible !important;
+}
+
+.teleport-page--manhinhchonthoigianchuyendi [class*='manhinhchonthoigianchuyendi-elm'],
+.teleport-page--manhinhchonvitrighengoi [class*='manhinhchonvitrighengoi-elm'],
+.teleport-page--dichvubosung [class*='dichvubosung-elm'],
+.teleport-page--manhinhdienthongtin [class*='manhinhdienthongtin-elm'],
+.teleport-page--manhinhthanhtoan [class*='manhinhthanhtoan-elm'] {
+  overflow: visible !important;
+  width: 100% !important;
+  align-items: stretch !important;
+}
+
+.teleport-page--manhinhchonthoigianchuyendi [class*='mnhnhchititchuyni-elm'],
+.teleport-page--manhinhchonvitrighengoi [class*='mnhnhchititchuyni-elm'],
+.teleport-page--dichvubosung [class*='mnhnhchititchuyni-elm'],
+.teleport-page--manhinhdienthongtin [class*='mnhnhchititchuyni-elm'],
+.teleport-page--manhinhthanhtoan [class*='mnhnhchititchuyni-elm'] {
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow: visible !important;
+  align-items: stretch !important;
+}
+
+.teleport-page--manhinhchonthoigianchuyendi .site-footer,
+.teleport-page--manhinhchonvitrighengoi .site-footer,
+.teleport-page--dichvubosung .site-footer,
+.teleport-page--manhinhdienthongtin .site-footer,
+.teleport-page--manhinhthanhtoan .site-footer {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  overflow: visible !important;
+  height: auto !important;
+  min-height: 0 !important;
+}
+
+/* —— Thanh toán — layout responsive, không tràn —— */
+.teleport-page--manhinhthanhtoan {
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow-x: hidden !important;
+  box-sizing: border-box !important;
+}
+
+.teleport-page--manhinhthanhtoan [class*='khungthanhton-elm'] {
+  width: 100% !important;
+  max-width: 1310px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding: 24px 16px 48px !important;
+  box-sizing: border-box !important;
+  align-items: stretch !important;
+  overflow: visible !important;
+}
+
+.teleport-page--manhinhthanhtoan [class*='khungchn-elm'] {
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+  margin: 0 !important;
+  padding: 24px 20px !important;
+  box-sizing: border-box !important;
+  align-items: stretch !important;
+  overflow: visible !important;
+  gap: 24px !important;
+}
+
+.teleport-page--manhinhthanhtoan [class*='text-elm119'] {
+  width: 100% !important;
+  align-self: stretch !important;
+}
+
+.teleport-page--manhinhthanhtoan [class*='text-elm121'] {
+  font-size: clamp(22px, 3vw, 28px) !important;
+  font-weight: 700 !important;
+}
+
+/* Hai cột: chi tiết chuyến | thông tin khách */
+.teleport-page--manhinhthanhtoan [class*='frame313-elm'] {
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+  display: flex !important;
+  flex-wrap: wrap !important;
+  align-items: stretch !important;
+  justify-content: center !important;
+  gap: 20px !important;
+  box-sizing: border-box !important;
+}
+
+.teleport-page--manhinhthanhtoan [class*='frame311-elm'],
+.teleport-page--manhinhthanhtoan [class*='frame310-elm'] {
+  flex: 1 1 320px !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+  height: auto !important;
+  min-height: 0 !important;
+  padding: 20px 16px !important;
+  box-sizing: border-box !important;
+  align-items: stretch !important;
+  align-self: stretch !important;
+  overflow: hidden !important;
+}
+
+.teleport-page--manhinhthanhtoan [class*='frame311-elm'] {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 14px !important;
+}
+
+.teleport-page--manhinhthanhtoan [class*='frame310-elm'] {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 14px !important;
+}
+
+.teleport-page--manhinhthanhtoan [class*='frame283-elm'],
+.teleport-page--manhinhthanhtoan [class*='frame300-elm1'] {
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+}
+
+.teleport-page--manhinhthanhtoan [class*='frame311-elm'] > [class*='text-elm'],
+.teleport-page--manhinhthanhtoan [class*='frame311-elm'] [class*='text-elm125'],
+.teleport-page--manhinhthanhtoan [class*='frame311-elm'] [class*='text-elm130'],
+.teleport-page--manhinhthanhtoan [class*='frame311-elm'] [class*='text-elm134'],
+.teleport-page--manhinhthanhtoan .booking-payment-pickup-row {
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+  align-self: stretch !important;
+  word-break: break-word !important;
+  white-space: normal !important;
+}
+
+.teleport-page--manhinhthanhtoan [class*='frame311-elm'] [class*='text-elm127'],
+.teleport-page--manhinhthanhtoan [class*='frame311-elm'] [class*='text-elm131'],
+.teleport-page--manhinhthanhtoan [class*='frame311-elm'] [class*='text-elm136'],
+.teleport-page--manhinhthanhtoan .booking-payment-pickup-row__value {
+  font-weight: 600 !important;
+  color: #1e1e1e !important;
+  word-break: break-word !important;
+}
+
+/* Khối tổng tiền */
+.teleport-page--manhinhthanhtoan [class*='frame299-elm'] {
+  width: 100% !important;
+  max-width: 100% !important;
+  height: auto !important;
+  min-height: 0 !important;
+  margin-top: 4px !important;
+  padding: 14px 16px !important;
+  box-sizing: border-box !important;
+  align-self: stretch !important;
+}
+
+.teleport-page--manhinhthanhtoan [class*='frame297-elm'] {
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+}
+
+.teleport-page--manhinhthanhtoan [class*='tinv-elm1'],
+.teleport-page--manhinhthanhtoan [class*='tinv-elm2'],
+.teleport-page--manhinhthanhtoan [class*='frame290-elm'] {
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+  gap: 8px 12px !important;
+  flex-wrap: wrap !important;
+  box-sizing: border-box !important;
+}
+
+.teleport-page--manhinhthanhtoan [class*='tinv-elm1'],
+.teleport-page--manhinhthanhtoan [class*='tinv-elm2'] {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+}
+
+.teleport-page--manhinhthanhtoan [class*='text-elm142'],
+.teleport-page--manhinhthanhtoan [class*='text-elm148'],
+.teleport-page--manhinhthanhtoan [class*='text-elm154'] {
+  flex: 1 1 auto !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+}
+
+.teleport-page--manhinhthanhtoan [class*='text-elm144'],
+.teleport-page--manhinhthanhtoan [class*='text-elm150'] {
+  word-break: break-word !important;
+  white-space: normal !important;
+  line-height: 1.35 !important;
+}
+
+.teleport-page--manhinhthanhtoan [class*='text-elm147'],
+.teleport-page--manhinhthanhtoan [class*='text-elm153'],
+.teleport-page--manhinhthanhtoan [class*='text-elm159'] {
+  font-weight: 600 !important;
+  flex-shrink: 0 !important;
+}
+
+.teleport-page--manhinhthanhtoan [class*='text-elm159'] {
+  color: #009951 !important;
+  font-size: clamp(18px, 3vw, 24px) !important;
+}
+
+.teleport-page--manhinhthanhtoan [class*='frame290-elm'] {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  padding: 8px 10px !important;
+}
+
+/* Thông tin khách + hành khách */
+.teleport-page--manhinhthanhtoan [class*='frame310-elm'] [class*='text-elm165'],
+.teleport-page--manhinhthanhtoan [class*='frame310-elm'] [class*='text-elm170'],
+.teleport-page--manhinhthanhtoan [class*='frame310-elm'] [class*='text-elm174'] {
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+  word-break: break-word !important;
+}
+
+.teleport-page--manhinhthanhtoan [class*='khungdanhschhnhkhch-elm'] {
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+  align-items: stretch !important;
+}
+
+.teleport-page--manhinhthanhtoan .booking-payment-passenger-tabs,
+.teleport-page--manhinhthanhtoan [class*='frame308-elm'] {
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 12px !important;
+  align-items: stretch !important;
+}
+
+.teleport-page--manhinhthanhtoan .booking-payment-tabs {
+  display: grid !important;
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  gap: 10px !important;
+  width: 100% !important;
+}
+
+.teleport-page--manhinhthanhtoan [class*='frame308-elm'] [class*='button-elm'] {
+  display: none !important;
+}
+
+.teleport-page--manhinhthanhtoan .booking-payment-tab {
+  min-height: 38px !important;
+  padding: 8px 6px !important;
+  border: 1px solid #d9d9d9 !important;
+  border-radius: 8px !important;
+  background: #f5f5f5 !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  cursor: pointer !important;
+  text-align: center !important;
+  box-sizing: border-box !important;
+}
+
+.teleport-page--manhinhthanhtoan .booking-payment-tab--active {
+  background: #0f8ce5 !important;
+  border-color: #0f8ce5 !important;
+  color: #fff !important;
+}
+
+.teleport-page--manhinhthanhtoan [class*='frame307-elm'] {
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+  box-sizing: border-box !important;
+}
+
+.teleport-page--manhinhthanhtoan .booking-payment-passenger-detail {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 10px 16px !important;
+  width: 100% !important;
+  padding: 14px !important;
+  border: 1px solid #e5e5e5 !important;
+  border-radius: 12px !important;
+  background: #fafafa !important;
+  box-sizing: border-box !important;
+}
+
+.teleport-page--manhinhthanhtoan [class*='frame307-elm'] [class*='text-elm193'],
+.teleport-page--manhinhthanhtoan [class*='frame307-elm'] [class*='text-elm199'],
+.teleport-page--manhinhthanhtoan [class*='frame307-elm'] [class*='text-elm205'],
+.teleport-page--manhinhthanhtoan [class*='frame307-elm'] [class*='text-elm211'] {
+  word-break: break-word !important;
+  white-space: normal !important;
+}
+
+/* Chuyển khoản: QR + thông tin ngân hàng */
+.teleport-page--manhinhthanhtoan [class*='text-elm212'] {
+  width: 100% !important;
+  margin-top: 8px !important;
+}
+
+.teleport-page--manhinhthanhtoan [class*='frame330-elm'] {
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+  display: flex !important;
+  flex-wrap: wrap !important;
+  align-items: flex-start !important;
+  justify-content: center !important;
+  gap: 24px !important;
+  box-sizing: border-box !important;
+}
+
+.teleport-page--manhinhthanhtoan [class*='frame328-elm'] {
+  flex: 1 1 280px !important;
+  width: 100% !important;
+  max-width: 420px !important;
+  min-width: 0 !important;
+  align-items: center !important;
+}
+
+.teleport-page--manhinhthanhtoan [class*='framenhchuyni-elm'],
+.teleport-page--manhinhthanhtoan .booking-payment-qr {
+  width: 100% !important;
+  max-width: 360px !important;
+  height: auto !important;
+  min-height: 200px !important;
+  aspect-ratio: 1 !important;
+  max-height: 360px !important;
+  margin: 0 auto !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 10px !important;
+  box-sizing: border-box !important;
+  background-color: #fff !important;
+  background-image: none !important;
+  overflow: hidden !important;
+}
+
+.teleport-page--manhinhthanhtoan .booking-payment-qr__img {
+  width: 100% !important;
+  height: 100% !important;
+  max-width: 100% !important;
+  max-height: 340px !important;
+  object-fit: contain !important;
+  display: block !important;
+}
+
+.teleport-page--manhinhthanhtoan [class*='text-elm244'] {
+  word-break: break-word !important;
+  white-space: normal !important;
+  line-height: 1.35 !important;
+}
+
+.teleport-page--manhinhthanhtoan [class*='frame329-elm'] {
+  flex: 1 1 280px !important;
+  width: 100% !important;
+  max-width: 480px !important;
+  min-width: 0 !important;
+  height: auto !important;
+  min-height: 0 !important;
+  align-self: stretch !important;
+}
+
+.teleport-page--manhinhthanhtoan [class*='frame323-elm'],
+.teleport-page--manhinhthanhtoan [class*='frame322-elm'],
+.teleport-page--manhinhthanhtoan [class*='frame325-elm'],
+.teleport-page--manhinhthanhtoan [class*='frame324-elm'] {
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+  flex-wrap: wrap !important;
+  gap: 6px 12px !important;
+  word-break: break-word !important;
+}
+
+.teleport-page--manhinhthanhtoan [class*='button-elm7'],
+.teleport-page--manhinhthanhtoan .booking-confirm-pay-btn {
+  width: 100% !important;
+  max-width: 100% !important;
+  min-height: 48px !important;
+  margin-top: 8px !important;
+  padding: 12px 20px !important;
+  border: none !important;
+  border-radius: 8px !important;
+  background: rgba(20, 174, 92, 1) !important;
+  color: #fff !important;
+  font-size: 16px !important;
+  font-weight: 600 !important;
+  cursor: pointer !important;
+  box-sizing: border-box !important;
+  box-shadow: 0 2px 10px rgba(20, 174, 92, 0.35) !important;
+  transition: opacity 0.15s, transform 0.15s !important;
+}
+
+.teleport-page--manhinhthanhtoan .booking-confirm-pay-btn:hover:not(:disabled) {
+  opacity: 0.92 !important;
+}
+
+.teleport-page--manhinhthanhtoan .booking-confirm-pay-btn:disabled {
+  opacity: 0.65 !important;
+  cursor: wait !important;
+}
+
+.teleport-page--manhinhthanhtoan .booking-confirm-pay-btn [class*='text-elm245'],
+.teleport-page--manhinhthanhtoan .booking-confirm-pay-btn span {
+  color: #fff !important;
+}
+
+@media (max-width: 1100px) {
+  .teleport-page--manhinhthanhtoan [class*='frame311-elm'],
+  .teleport-page--manhinhthanhtoan [class*='frame310-elm'] {
+    flex: 1 1 100% !important;
+    max-width: 100% !important;
+  }
+}
+
+@media (max-width: 720px) {
+  .teleport-page--manhinhthanhtoan [class*='khungthanhton-elm'] {
+    padding: 16px 12px 32px !important;
+  }
+
+  .teleport-page--manhinhthanhtoan [class*='khungchn-elm'] {
+    padding: 16px 12px !important;
+  }
+
+  .teleport-page--manhinhthanhtoan .booking-payment-tabs {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  .teleport-page--manhinhthanhtoan .booking-payment-passenger-detail {
+    grid-template-columns: 1fr !important;
+  }
+
+  .teleport-page--manhinhthanhtoan [class*='tinv-elm1'],
+  .teleport-page--manhinhthanhtoan [class*='tinv-elm2'] {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+  }
+
+  .teleport-page--manhinhthanhtoan [class*='frame328-elm'],
+  .teleport-page--manhinhthanhtoan [class*='frame329-elm'] {
+    max-width: 100% !important;
+  }
+}

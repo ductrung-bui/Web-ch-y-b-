@@ -1,0 +1,255 @@
+/* Thanh navigate: cố định trên cùng, tách khỏi section nội dung */
+
+.teleport-page {
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+/* Chừa chỗ cho nav fixed + khoảng cách với phần dưới */
+.teleport-page.teleport-page--has-fixed-nav {
+  padding-top: calc(var(--teleport-nav-height, 72px) + 12px);
+}
+
+.teleport-nav-shell {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  max-width: 100%;
+  z-index: 1100;
+  flex-shrink: 0;
+  box-sizing: border-box;
+  background: #fff;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.teleport-header-unified[class*='header-elm'] {
+  display: block !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  box-sizing: border-box;
+}
+
+.teleport-nav-bar[class*='header-default-elm'] {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  align-items: center !important;
+  gap: 12px !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  height: auto !important;
+  min-height: 64px;
+  padding: 12px clamp(16px, 2.5vw, 40px) !important;
+  overflow: hidden;
+  box-sizing: border-box;
+  box-shadow: none !important;
+  background-color: #fff !important;
+}
+
+/* Nội dung trang không dính sát / không trượt dưới nav */
+.teleport-page.teleport-page--has-fixed-nav > [class*='container1'] {
+  margin-top: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.teleport-nav-bar [class*='logotchnn1-elm1'],
+.teleport-nav-bar img[class*='logotchnn1-elm1'] {
+  flex: 0 0 auto;
+  width: auto !important;
+  max-width: 150px;
+  height: 42px !important;
+  margin: 0;
+  object-fit: contain;
+  object-position: left center;
+  cursor: pointer;
+}
+
+/* Cụm menu + avatar — đẩy sang phải */
+.teleport-nav-right {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-left: auto;
+  min-width: 0;
+  flex: 0 1 auto;
+}
+
+.teleport-nav-right [class*='navigation-pill-list-elm'] {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  align-items: center !important;
+  justify-content: flex-end !important;
+  gap: 8px !important;
+  margin: 0;
+  padding: 0;
+  flex: 0 1 auto;
+  min-width: 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+}
+
+.teleport-nav-right [class*='navigation-pill-list-elm']::-webkit-scrollbar {
+  height: 4px;
+}
+
+.teleport-nav-right [class*='header-auth-elm'],
+.teleport-nav-right [data-teleport-auth-slot] {
+  flex: 0 0 auto !important;
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  align-items: center !important;
+  gap: 6px !important;
+  margin: 0 !important;
+  padding: 4px 6px !important;
+  box-shadow: none !important;
+  background: transparent !important;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+/* Ẩn Sign in / Register Figma trên trang chọn thời gian */
+.teleport-nav-shell [class*='header-auth-elm1'],
+.teleport-nav-shell [class*='header-auth-elm2'],
+.teleport-nav-right [class*='header-auth-elm'] button {
+  display: none !important;
+}
+
+.teleport-nav-right [class*='avatar-elm'] {
+  flex-shrink: 0;
+}
+
+.teleport-nav-right [class*='chevrondown-elm'] {
+  flex-shrink: 0;
+  width: 16px !important;
+  height: 16px !important;
+}
+
+/* Fallback header chưa unify */
+[class*='header-elm']:not(.teleport-header-unified) {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+}
+
+[class*='header-default-elm']:not(.teleport-nav-bar) {
+  width: 100% !important;
+  max-width: 100% !important;
+  display: flex !important;
+  flex-wrap: nowrap !important;
+  align-items: center !important;
+}
+
+[class*='navigation-pill-list-elm'] {
+  justify-content: flex-end !important;
+}
+
+/* Nav pills */
+.teleport-nav-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin: 0;
+  padding: 10px 14px;
+  border: 1px solid rgba(118, 118, 118, 1);
+  border-radius: 20px;
+  background: rgba(227, 227, 227, 1);
+  color: rgba(30, 30, 30, 1);
+  font-family: Inter, Noto Sans, system-ui, sans-serif;
+  font-size: 14px;
+  line-height: 1;
+  text-decoration: none;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background-color 0.15s, border-color 0.15s, color 0.15s;
+}
+
+.teleport-nav-pill:hover {
+  background: rgba(210, 210, 210, 1);
+}
+
+.teleport-nav-pill--active {
+  background: rgba(44, 44, 44, 1);
+  border-color: rgba(44, 44, 44, 1);
+  color: rgba(245, 245, 245, 1);
+}
+
+.teleport-nav-pill--auth {
+  background: rgba(40, 116, 222, 0.12);
+  border-color: rgba(40, 116, 222, 0.45);
+}
+
+.teleport-nav-user-badge {
+  font-size: 12px;
+  font-weight: 600;
+  color: #2874de;
+  max-width: 88px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  flex-shrink: 1;
+  min-width: 0;
+}
+
+@media (max-width: 1200px) {
+  .teleport-nav-user-badge {
+    display: none;
+  }
+
+  .teleport-nav-pill {
+    padding: 8px 11px;
+    font-size: 13px;
+  }
+
+  .teleport-nav-bar [class*='logotchnn1-elm1'],
+  .teleport-nav-bar img[class*='logotchnn1-elm1'] {
+    max-width: 120px;
+    height: 36px !important;
+  }
+}
+
+[class*='logotchnn1-elm'] img,
+img[class*='logotchnn1-elm'] {
+  object-fit: contain;
+  object-position: left center;
+}
+
+.teleport-nav-sidebar--active {
+  outline: 2px solid rgba(40, 116, 222, 0.55);
+  outline-offset: 2px;
+  border-radius: 12px;
+}
+
+.teleport-nav-clickable {
+  cursor: pointer;
+}
+
+/* Cho phép shell full width dù cha Figma là 1440px */
+.teleport-page > [class*='container1'],
+.teleport-page [class*='container1'] {
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box;
+}
+
+.teleport-nav-shell,
+.teleport-nav-shell [class*='header-elm'],
+.teleport-nav-shell [class*='header-default-elm'] {
+  width: 100% !important;
+  max-width: 100% !important;
+}

@@ -1,0 +1,88 @@
+/* Avatar user — ảnh hoặc 1 chữ cái + nền màu (kiểu Google) */
+
+[class*='avatar-elm'] [class*='shape-elm'],
+[class*='header-auth-elm'] img[class*='shape-elm'],
+[data-teleport-auth-slot] img[class*='shape-elm'] {
+  display: none !important;
+}
+
+/* Không hiện icon ảnh lỗi cạnh tên user — chỉ chữ hoặc ảnh load thành công */
+[class*='header-auth-elm'] > img:not([class*='chevrondown']),
+[data-teleport-auth-slot] > img:not([class*='chevrondown']) {
+  display: none !important;
+}
+
+[class*='avatar-elm'],
+.app-shell__avatar,
+.user-avatar-box,
+.account-profile-panel__avatar {
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+[class*='avatar-elm'].user-avatar--initial,
+.app-shell__avatar.user-avatar--initial,
+.user-avatar-box.user-avatar--initial,
+.account-profile-panel__avatar.user-avatar--initial {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border: none !important;
+}
+
+[class*='avatar-elm'].user-avatar--empty:not(.user-avatar--initial) {
+  background-color: rgba(227, 227, 227, 1);
+  border: 1.5px solid rgba(160, 160, 160, 0.45);
+}
+
+.teleport-user-avatar-initial,
+.app-shell__avatarInitial {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  font-weight: 600;
+  line-height: 1;
+  color: #fff;
+  user-select: none;
+  font-family: Inter, 'Google Sans', system-ui, sans-serif;
+}
+
+[class*='avatar-elm'] .teleport-user-avatar-initial {
+  font-size: 17px;
+}
+
+.app-shell__avatarInitial {
+  font-size: 13px;
+}
+
+[class*='avatar-elm'] .teleport-user-avatar-img,
+.app-shell__avatar .app-shell__avatarImg,
+.user-avatar-box .teleport-user-avatar-img,
+.account-profile-panel__avatar .teleport-user-avatar-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 9999px;
+}
+
+[class*='avatar-elm']:has(.teleport-user-avatar-img),
+.app-shell__avatar:has(.app-shell__avatarImg),
+.user-avatar-box:has(.teleport-user-avatar-img),
+.account-profile-panel__avatar:has(.teleport-user-avatar-img) {
+  border-color: transparent;
+}
+
+/* Mũi tên cạnh tên user — dùng icon thật, ẩn file Figma lỗi */
+[class*='header-auth-elm'] img[class*='chevrondown-elm'],
+[data-teleport-auth-slot] img[class*='chevrondown-elm'] {
+  display: block !important;
+  width: 16px !important;
+  height: 16px !important;
+  flex-shrink: 0;
+  object-fit: contain;
+}

@@ -1,0 +1,65 @@
+/* Phân trang bài viết — dùng chung trang chủ & kinh nghiệm */
+
+.teleport-page [class*='pagination-previous-elm'].articles-pagination__btn,
+.teleport-page [class*='pagination-next-elm'].articles-pagination__btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  padding: 10px 16px !important;
+  border: 1px solid rgba(217, 217, 217, 1) !important;
+  border-radius: 9999px !important;
+  background: #fff !important;
+  opacity: 1 !important;
+  cursor: pointer;
+  font-family: Inter, Noto Sans, system-ui, sans-serif;
+  font-size: 14px;
+  line-height: 1;
+  color: rgba(30, 30, 30, 1);
+}
+
+.teleport-page [class*='pagination-previous-elm'].articles-pagination__btn:hover,
+.teleport-page [class*='pagination-next-elm'].articles-pagination__btn:hover {
+  background: rgba(245, 245, 245, 1) !important;
+}
+
+.teleport-page .articles-pagination__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  color: rgba(30, 30, 30, 1);
+}
+
+.teleport-page .articles-pagination__icon img {
+  width: 16px !important;
+  height: 16px !important;
+}
+
+.teleport-page .articles-pagination__list {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 6px !important;
+  flex-wrap: wrap;
+}
+
+.teleport-page .articles-pagination__page {
+  min-width: 36px;
+  height: 36px;
+  padding: 0 10px;
+  border: 1px solid rgba(217, 217, 217, 1);
+  border-radius: 8px;
+  background: #fff;
+  font-family: Inter, Noto Sans, system-ui, sans-serif;
+  font-size: 14px;
+  color: rgba(30, 30, 30, 1);
+  cursor: pointer;
+}
+
+.teleport-page .articles-pagination__page--active {
+  background: rgba(30, 30, 30, 1);
+  border-color: rgba(30, 30, 30, 1);
+  color: #fff;
+}

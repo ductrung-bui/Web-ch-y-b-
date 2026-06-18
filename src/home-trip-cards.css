@@ -1,0 +1,27 @@
+/* Thẻ chuyến đi trang chủ — click mở trang mua vé / chi tiết */
+
+.teleport-page--mnhnhtrangch .home-trip-card,
+.teleport-page--mnhnhchititchuyni .home-trip-card {
+  cursor: pointer !important;
+  transition: box-shadow 0.15s ease, transform 0.15s ease;
+}
+
+.teleport-page--mnhnhtrangch .home-trip-card:hover,
+.teleport-page--mnhnhchititchuyni .home-trip-card:hover {
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.teleport-page--mnhnhtrangch .home-trip-card:focus-visible,
+.teleport-page--mnhnhchititchuyni .home-trip-card:focus-visible {
+  outline: 2px solid rgba(15, 140, 229, 0.55);
+  outline-offset: 2px;
+}
+
+.teleport-page--mnhnhtrangch .home-trip-card [class*='framenhchuyni-elm'],
+.teleport-page--mnhnhtrangch .home-trip-card [class*='textaim-elm'],
+.teleport-page--mnhnhtrangch .home-trip-card [class*='tinv-elm'],
+.teleport-page--mnhnhchititchuyni .home-trip-card [class*='framenhchuyni-elm'],
+.teleport-page--mnhnhchititchuyni .home-trip-card [class*='textaim-elm'],
+.teleport-page--mnhnhchititchuyni .home-trip-card [class*='tinv-elm'] {
+  pointer-events: none;
+}

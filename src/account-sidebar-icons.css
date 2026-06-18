@@ -1,0 +1,37 @@
+/* Sidebar tài khoản — icon đồng bộ (vé / lịch sử / đăng xuất) */
+
+.teleport-page--lichsuchuyendi [class*='frame392-elm'],
+.teleport-page--lichsuchuyendi [class*='frame394-elm'],
+.teleport-page--lichsuchuyendi [class*='frame393-elm'],
+.teleport-page--lichsuchuyendi [class*='frame395-elm'],
+.teleport-page--thongtinvedadat [class*='frame396-elm'] [class*='frame392-elm1'],
+.teleport-page--thongtinvedadat [class*='frame396-elm'] [class*='frame394-elm'],
+.teleport-page--thongtinvedadat [class*='frame396-elm'] [class*='frame393-elm'],
+.teleport-page--thongtinvedadat [class*='frame396-elm'] [class*='frame395-elm'],
+.teleport-page--thongtinvedahuy [class*='frame396-elm'] [class*='frame392-elm1'],
+.teleport-page--thongtinvedahuy [class*='frame396-elm'] [class*='frame394-elm'],
+.teleport-page--thongtinvedahuy [class*='frame396-elm'] [class*='frame393-elm'],
+.teleport-page--thongtinvedahuy [class*='frame396-elm'] [class*='frame395-elm'] {
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+}
+
+.teleport-page--lichsuchuyendi [class*='frame392-elm'] img,
+.teleport-page--lichsuchuyendi [class*='frame394-elm'] img,
+.teleport-page--lichsuchuyendi [class*='frame393-elm'] img,
+.teleport-page--lichsuchuyendi [class*='frame395-elm'] img,
+.teleport-page--thongtinvedadat [class*='frame396-elm'] [class*='frame392-elm1'] img,
+.teleport-page--thongtinvedadat [class*='frame396-elm'] [class*='frame394-elm'] img,
+.teleport-page--thongtinvedadat [class*='frame396-elm'] [class*='frame393-elm'] img,
+.teleport-page--thongtinvedadat [class*='frame396-elm'] [class*='frame395-elm'] img,
+.teleport-page--thongtinvedahuy [class*='frame396-elm'] [class*='frame392-elm1'] img,
+.teleport-page--thongtinvedahuy [class*='frame396-elm'] [class*='frame394-elm'] img,
+.teleport-page--thongtinvedahuy [class*='frame396-elm'] [class*='frame393-elm'] img,
+.teleport-page--thongtinvedahuy [class*='frame396-elm'] [class*='frame395-elm'] img,
+.teleport-page .account-icon {
+  width: 22px !important;
+  height: 22px !important;
+  flex-shrink: 0;
+  object-fit: contain;
+}

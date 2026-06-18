@@ -1,0 +1,174 @@
+.app-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-shell__bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 1rem;
+  padding: 0.5rem 1rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  background: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.app-shell__brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 700;
+  font-size: 0.95rem;
+  margin-right: 0.5rem;
+  text-decoration: none;
+  color: inherit;
+}
+
+.app-shell__brandText {
+  white-space: nowrap;
+}
+
+.app-shell__logo {
+  height: 40px;
+  width: auto;
+  max-width: 200px;
+  object-fit: contain;
+  display: block;
+}
+
+.app-shell__nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 0.5rem;
+  flex: 1;
+  justify-content: flex-end;
+}
+
+.app-shell__link {
+  font-size: 0.75rem;
+  padding: 0.2rem 0.45rem;
+  border-radius: 4px;
+  text-decoration: none;
+  color: #333;
+}
+
+.app-shell__link:hover {
+  background: rgba(0, 0, 0, 0.06);
+}
+
+.app-shell__link--active {
+  background: rgba(40, 116, 222, 0.12);
+  color: #1a5bb8;
+  font-weight: 600;
+}
+
+.app-shell__main {
+  flex: 1;
+  width: 100%;
+}
+
+.app-shell--teleport .app-shell__main {
+  padding: 0;
+}
+
+.page-loader {
+  padding: 2rem;
+  text-align: center;
+}
+
+.app-shell__user {
+  font-size: 0.8rem;
+  color: #1a5bb8;
+}
+
+.app-shell__avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 999px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.app-shell__avatarImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.app-shell__logout {
+  font-size: 0.75rem;
+  padding: 0.2rem 0.45rem;
+  border-radius: 4px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  background: #fff;
+  color: #333;
+  cursor: pointer;
+}
+
+.app-shell__logout:hover:not(:disabled) {
+  background: rgba(0, 0, 0, 0.06);
+}
+
+.app-shell__logout:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+.db-badge {
+  font-size: 0.7rem;
+  padding: 0.15rem 0.5rem;
+  border-radius: 4px;
+  background: #eee;
+}
+.db-badge--connected {
+  background: #d4edda;
+  color: #155724;
+}
+.db-badge--offline,
+.db-badge--error {
+  background: #f8d7da;
+  color: #721c24;
+}
+
+.page-data-panel {
+  margin: 0.75rem 1rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid #2874de;
+  border-radius: 8px;
+  background: #f0f7ff;
+  font-size: 0.85rem;
+  text-align: left;
+}
+.page-data-panel__head {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  margin-bottom: 0.5rem;
+}
+.page-data-panel__tables {
+  color: #555;
+  font-weight: normal;
+}
+.page-data-panel__error {
+  color: #c00;
+}
+.page-data-panel__list {
+  margin: 0;
+  padding-left: 1.2rem;
+}
+.page-data-panel__json {
+  max-height: 200px;
+  overflow: auto;
+  font-size: 0.75rem;
+}
+
+/* Form auth: style trong auth-page.css khi dùng layout Teleport */

@@ -1,0 +1,63 @@
+/* Trang Kinh nghiệm (/kinh-nghiem) — shell full-width, tiêu đề */
+
+.teleport-page--kinhnghim {
+  width: 100% !important;
+  overflow-x: hidden !important;
+}
+
+.teleport-page--kinhnghim [class*='kinhnghim-container1'] {
+  width: 100% !important;
+  align-items: stretch !important;
+  overflow-x: hidden !important;
+}
+
+.teleport-page--kinhnghim [class*='kinhnghim-elm']:not([class*='bivitmiv']) {
+  width: 100% !important;
+}
+
+.teleport-page--kinhnghim [class*='frame120-elm'] {
+  width: 100% !important;
+  max-width: 1440px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding: 0 16px 48px !important;
+  box-sizing: border-box !important;
+}
+
+.teleport-page--kinhnghim [class*='header-default-elm'] {
+  width: 100% !important;
+  max-width: 1240px !important;
+  margin: 0 auto !important;
+  box-sizing: border-box !important;
+}
+
+.teleport-page--kinhnghim [class*='cmnangleoni-elm'] {
+  width: 100% !important;
+  max-width: 1310px !important;
+  margin: 0 auto !important;
+  padding: 8px 0 0 !important;
+  box-sizing: border-box !important;
+  gap: 32px !important;
+}
+
+.teleport-page--kinhnghim [class*='text-cmnang-elm'] {
+  width: 100% !important;
+  align-items: flex-start !important;
+}
+
+.teleport-page--kinhnghim [class*='text-content-heading-elm'] {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+.teleport-page--kinhnghim [class*='text-elm10'] {
+  font-size: clamp(36px, 6vw, 64px) !important;
+  line-height: 1.2 !important;
+  text-align: left !important;
+}
+
+@media (max-width: 720px) {
+  .teleport-page--kinhnghim [class*='frame120-elm'] {
+    padding-bottom: 32px !important;
+  }
+}

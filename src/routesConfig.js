@@ -1,0 +1,50 @@
+/** Đồng bộ với App.jsx và scripts/build-teleport-pages.mjs */
+export const PAGE_ROUTES = [
+  ['index', '/gioi-thieu'],
+  ['dangnhap', '/dang-nhap'],
+  ['dangky', '/dang-ky'],
+  ['dangxuat', '/dang-xuat'],
+  ['thaydoimatkhau', '/thay-doi-mat-khau'],
+  ['nhapemailkhoiphuc', '/nhap-email-khoi-phuc'],
+  ['khoiphucmatkhau', '/khoi-phuc-mat-khau'],
+  ['mnhnhtrangch', '/trang-chu'],
+  ['mnhnhchititchuyni', '/chuyen-di/:id'],
+  ['manhinhchonthoigianchuyendi', '/chon-thoi-gian-chuyen-di'],
+  ['manhinhchonvitrighengoi', '/chon-vi-tri-ghe'],
+  ['manhinhdienthongtin', '/dien-thong-tin'],
+  ['manhinhthanhtoan', '/thanh-toan'],
+  ['dichvubosung', '/dich-vu-bo-sung'],
+  ['thongtinvedadat', '/ve-cua-toi'],
+  ['thongtinvedahuy', '/ve-da-huy'],
+  ['lichsuchuyendi', '/lich-su-chuyen-di'],
+  ['lchtrongthng', '/lich-trong-thang'],
+  ['kinhnghim', '/kinh-nghiem'],
+]
+
+const LABELS = {
+  index: 'Giới thiệu',
+  dangnhap: 'Đăng nhập',
+  dangky: 'Đăng ký',
+  dangxuat: 'Đăng xuất',
+  thaydoimatkhau: 'Đổi mật khẩu',
+  nhapemailkhoiphuc: 'Email khôi phục',
+  khoiphucmatkhau: 'Khôi phục MK',
+  mnhnhtrangch: 'Trang chủ',
+  mnhnhchititchuyni: 'Chi tiết chuyến',
+  manhinhchonthoigianchuyendi: 'Chọn giờ',
+  manhinhchonvitrighengoi: 'Chọn ghế',
+  manhinhdienthongtin: 'Điền thông tin',
+  manhinhthanhtoan: 'Thanh toán',
+  dichvubosung: 'Dịch vụ thêm',
+  thongtinvedadat: 'Vé của tôi',
+  thongtinvedahuy: 'Vé đã hủy',
+  lichsuchuyendi: 'Lịch sử',
+  lchtrongthng: 'Lịch tháng',
+  kinhnghim: 'Kinh nghiệm',
+}
+
+export const PAGE_LINKS = PAGE_ROUTES.map(([slug, path]) => ({
+  slug,
+  path,
+  label: LABELS[slug] ?? slug,
+}))
